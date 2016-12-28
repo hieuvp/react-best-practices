@@ -9,6 +9,7 @@
     "stylelint-config-standard": "^15.0.1"
   },
   "dependencies": {
+    "immutable": "^3.8.1",
     "material-ui": "^0.16.6",
     "radium": "^0.18.1",
     "react": "^15.4.1",

@@ -7,6 +7,7 @@ import { MuiThemeProvider } from 'material-ui';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import { Provider } from 'react-redux';
 import App from './App';
+import configureReducer from './configureReducer';
 import configureStore from './configureStore';
 
 export default class Root extends Component {
@@ -17,10 +18,12 @@ export default class Root extends Component {
   }
 
   render() {
+    const reducers = configureReducer();
+    const store = configureStore(reducers);
     return (
-      <Provider store={configureStore()}>
+      <Provider store={store}>
         <MuiThemeProvider>
-          <App />
+          <App store={store} />
         </MuiThemeProvider>
       </Provider>
     );

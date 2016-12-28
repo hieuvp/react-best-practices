@@ -19,7 +19,7 @@ class HomeContainer extends BaseContainer {
   render() {
     return (
       <div style={styles.container}>
-        <h2>Welcome to React</h2>
+        <h2>Welcome to HomeContainer</h2>
       </div>
     );
   }
