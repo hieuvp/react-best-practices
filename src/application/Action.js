@@ -4,5 +4,4 @@
  */
 
 export type Action = {type: any}
-  | {type: any}
-  ;
+  | {type: any};
