@@ -1,6 +1,6 @@
-// @flow
 /**
  * Created by HieuVP on 12/28/16.
+ * @flow
  */
 import { Component } from 'react';
 
