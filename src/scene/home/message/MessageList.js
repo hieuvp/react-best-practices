@@ -25,7 +25,9 @@ export default class MessageList extends BaseComponent {
     return (
       <Card style={{flexGrow: 2, marginLeft: 30}}>
         <List>
-          {this.props.messages.map(message => <MessageItem message={message} />)}
+          {this.props.messages.map((message, index) => (
+            <MessageItem key={`message-item-${index}`} message={message} />
+          ))}
         </List>
       </Card>
     );
