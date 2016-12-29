@@ -8,19 +8,17 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import BaseContainer from '../../application/BaseContainer';
 import * as Action from './HomeAction';
-import Color from '../../constant/Color';
+import { Color } from '../../constant';
 
-type Props = {};
-
-class HomeContainer extends BaseContainer<Props> {
+class HomeContainer extends BaseContainer<*> {
 
   static get TAG_NAME() {
     return HomeContainer.name;
   }
 
-  props: Props;
-
   static defaultProps: {};
+
+  props: {};
 
   state: {};
 
