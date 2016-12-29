@@ -12,6 +12,7 @@ import ChannelList from './channel/ChannelList';
 import MessageList from './message/MessageList';
 import ChatBox from './component/ChatBox';
 import * as Action from './HomeAction';
+import { Dimension } from '../../constant';
 
 class HomeContainer extends BaseContainer<*> {
 
@@ -35,10 +36,12 @@ class HomeContainer extends BaseContainer<*> {
       <div>
         <Header />
         <div style={styles.container}>
-          <ChannelList {...this.props} />
-          <MessageList {...this.props} />
+          <div style={styles.main}>
+            <ChannelList {...this.props} />
+            <MessageList {...this.props} />
+          </div>
+          <ChatBox />
         </div>
-        <ChatBox />
       </div>
     );
   }
@@ -49,12 +52,14 @@ HomeContainer.defaultProps = {};
 
 const styles = {
   container: {
-    display: 'flex',
-    flexFlow: 'row wrap',
+    maxWidth: Dimension.window.maxWidth,
     width: '90%',
-    maxWidth: 1200,
     margin: '30px auto 30px',
   },
+  main: {
+    display: 'flex',
+    flexFlow: 'row wrap',
+  }
 };
 
 function mapStateToProps(state) {
