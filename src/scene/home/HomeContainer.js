@@ -30,4 +30,19 @@ const styles = {
   container: {},
 };
 
-export default Radium(HomeContainer);
+function mapStateToProps(state) {
+  return {
+    ...state[HomeContainer.TAG_NAME],
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    action: bindActionCreators(Action, dispatch)
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Radium(HomeContainer))

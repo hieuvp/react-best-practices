@@ -2,9 +2,9 @@
  * Created by HieuVP on 12/28/16.
  * @flow
  */
-import { Component } from 'react';
+import React from 'react';
 
-export default class BaseComponent extends Component {
+export default class BaseComponent extends React.Component {
 
   constructor() {
     super();
