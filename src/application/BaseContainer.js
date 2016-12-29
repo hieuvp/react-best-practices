@@ -4,10 +4,12 @@
  */
 import BaseComponent from './BaseComponent';
 
-export default class BaseContainer extends BaseComponent {
+class BaseContainer<DefaultProps, Props, State> extends BaseComponent<DefaultProps, Props, State> {
 
   constructor() {
     super();
   }
 
 }
+
+export default BaseContainer;
