@@ -24,11 +24,12 @@ export default class ChatBox extends BaseComponent {
   };
 
   onKeyUp = (eventHandler: *) => {
+    if (eventHandler.keyCode !== 13) return;
     const text = eventHandler.target.value;
-    if (eventHandler.keyCode === 13 && text.trim() !== '') {
+    if (text.trim() !== '') {
       eventHandler.preventDefault();
-      this.setState({text: ''});
     }
+    this.setState({text: ''});
   };
 
   render() {
