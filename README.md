@@ -1,6 +1,6 @@
 # React Best Practices
 
-This is a Chat App that shows how to architect a React Application using Redux, Router and Material UI.
+This is a Chat App that shows how to architect a React Application using Redux, Router, Firebase and Material UI.
 
 # Package by feature
 
