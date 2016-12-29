@@ -4,10 +4,12 @@
  */
 import React from 'react';
 
-export default class BaseComponent extends React.Component {
+class BaseComponent<Props> extends React.Component<*, Props, *> {
 
   constructor() {
     super();
   }
 
 }
+
+export default BaseComponent;

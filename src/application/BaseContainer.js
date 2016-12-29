@@ -4,7 +4,7 @@
  */
 import BaseComponent from './BaseComponent';
 
-class BaseContainer<DefaultProps, Props, State> extends BaseComponent<DefaultProps, Props, State> {
+class BaseContainer<Props> extends BaseComponent<Props> {
 
   constructor() {
     super();

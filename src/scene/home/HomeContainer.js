@@ -10,22 +10,23 @@ import BaseContainer from '../../application/BaseContainer';
 import * as Action from './HomeAction';
 import Color from '../../constant/Color';
 
-type DefaultProps = {};
 type Props = {};
-type State = {};
 
-class HomeContainer extends BaseContainer<DefaultProps, Props, State> {
+class HomeContainer extends BaseContainer<Props> {
 
   static get TAG_NAME() {
     return HomeContainer.name;
   }
 
-  static defaultProps: DefaultProps;
   props: Props;
-  state: State;
+
+  static defaultProps: {};
+
+  state: {};
 
   constructor() {
     super();
+    this.state = {};
   }
 
   render() {
