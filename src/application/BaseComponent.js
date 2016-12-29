@@ -6,8 +6,8 @@ import React from 'react';
 
 class BaseComponent<Props> extends React.Component<*, Props, *> {
 
-  constructor() {
-    super();
+  constructor(props: any) {
+    super(props);
   }
 
 }

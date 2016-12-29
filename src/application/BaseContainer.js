@@ -6,8 +6,8 @@ import BaseComponent from './BaseComponent';
 
 class BaseContainer<Props> extends BaseComponent<Props> {
 
-  constructor() {
-    super();
+  constructor(props: any) {
+    super(props);
   }
 
 }

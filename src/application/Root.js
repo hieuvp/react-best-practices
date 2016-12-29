@@ -12,8 +12,8 @@ import configureStore from './configureStore';
 
 export default class Root extends Component {
 
-  constructor() {
-    super();
+  constructor(props: any) {
+    super(props);
     injectTapEventPlugin();
   }
 

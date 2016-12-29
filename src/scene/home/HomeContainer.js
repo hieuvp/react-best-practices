@@ -7,8 +7,11 @@ import Radium from 'radium';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import BaseContainer from '../../application/BaseContainer';
+import Header from '../../widget/Header';
+import ChannelList from './channel/ChannelList';
+import MessageList from './message/MessageList';
+import ChatBox from './component/ChatBox';
 import * as Action from './HomeAction';
-import { Color } from '../../constant';
 
 class HomeContainer extends BaseContainer<*> {
 
@@ -22,15 +25,20 @@ class HomeContainer extends BaseContainer<*> {
 
   state: {};
 
-  constructor() {
-    super();
+  constructor(props: any) {
+    super(props);
     this.state = {};
   }
 
   render() {
     return (
-      <div style={styles.container}>
-        <h2>Welcome to HomeContainer</h2>
+      <div>
+        <Header />
+        <div style={styles.container}>
+          <ChannelList {...this.props} />
+          <MessageList {...this.props} />
+        </div>
+        <ChatBox />
       </div>
     );
   }
@@ -42,7 +50,10 @@ HomeContainer.defaultProps = {};
 const styles = {
   container: {
     display: 'flex',
-    backgroundColor: Color.white,
+    flexFlow: 'row wrap',
+    width: '90%',
+    maxWidth: 1200,
+    margin: '30px auto 30px',
   },
 };
 
