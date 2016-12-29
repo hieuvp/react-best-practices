@@ -2,8 +2,8 @@
  * Created by HieuVP on 12/28/16.
  * @flow
  */
-import type { Action } from '../../application/Action';
-import type { Message } from '../../model/Message';
+import type { Action } from '../Action';
+import type { Message } from '../../domain/message/Message';
 
 type State = {
   channels: Array<string>,

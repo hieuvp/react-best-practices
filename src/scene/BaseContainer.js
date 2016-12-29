@@ -2,7 +2,7 @@
  * Created by HieuVP on 12/28/16.
  * @flow
  */
-import BaseComponent from './BaseComponent';
+import BaseComponent from '../application/BaseComponent';
 
 class BaseContainer<Props> extends BaseComponent<Props> {
 

@@ -2,8 +2,8 @@
  * Created by HieuVP on 12/28/16.
  * @flow
  */
-import HomeContainer from '../scene/home/HomeContainer';
-import homeReducer from '../scene/home/homeReducer';
+import HomeContainer from './home/HomeContainer';
+import homeReducer from './home/homeReducer';
 
 const SCENES = {
   [HomeContainer.TAG_NAME]: {

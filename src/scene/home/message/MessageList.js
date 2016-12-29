@@ -9,7 +9,7 @@ import {
 } from 'material-ui';
 import BaseComponent from '../../../application/BaseComponent';
 import MessageItem from './MessageItem';
-import type { Message } from '../../../model/Message';
+import type { Message } from '../../../domain/message/Message';
 
 export default class MessageList extends BaseComponent {
 

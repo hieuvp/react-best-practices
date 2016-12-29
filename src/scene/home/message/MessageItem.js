@@ -8,7 +8,7 @@ import {
   Avatar
 } from 'material-ui';
 import BaseComponent from '../../../application/BaseComponent';
-import type { Message } from '../../../model/Message';
+import type { Message } from '../../../domain/message/Message';
 
 export default class MessageItem extends BaseComponent {
 

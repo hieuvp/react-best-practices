@@ -2,15 +2,16 @@
  * Created by HieuVP on 12/28/16.
  * @flow
  */
-import React, { Component } from 'react';
+import React from 'react';
 import { MuiThemeProvider } from 'material-ui';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import { Provider } from 'react-redux';
-import App from './App';
+import BaseComponent from './BaseComponent';
+import Application from './Application';
 import configureReducer from './configureReducer';
 import configureStore from './configureStore';
 
-export default class Root extends Component {
+class Root extends BaseComponent {
 
   constructor(props: any) {
     super(props);
@@ -23,10 +24,12 @@ export default class Root extends Component {
     return (
       <Provider store={store}>
         <MuiThemeProvider>
-          <App store={store} />
+          <Application store={store} />
         </MuiThemeProvider>
       </Provider>
     );
   }
 
 }
+
+export default Root;

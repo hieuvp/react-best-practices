@@ -4,9 +4,9 @@
  */
 import React from 'react';
 import { AppBar } from 'material-ui';
-import BaseComponent from '../application/BaseComponent';
+import BaseView from './BaseView';
 
-export default class Header extends BaseComponent {
+export default class Header extends BaseView {
 
   constructor(props: any) {
     super(props);
