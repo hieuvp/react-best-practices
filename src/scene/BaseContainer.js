@@ -15,6 +15,13 @@ class BaseContainer<Props> extends BaseComponent<Props> {
   /**
    * @override
    */
+  componentWillMount() {
+    super.componentWillMount();
+  }
+
+  /**
+   * @override
+   */
   componentDidMount() {
     super.componentDidMount();
   }

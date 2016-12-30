@@ -10,6 +10,9 @@ class BaseComponent<Props> extends React.Component<*, Props, *> {
     super(props);
   }
 
+  componentWillMount() {
+  }
+
   componentDidMount() {
   }
 
