@@ -12,11 +12,13 @@ import Header from '../../view/Header';
 import ChannelList from './channel/ChannelList';
 import MessageList from './message/MessageList';
 import ChatBox from './common/ChatBox';
+import type { HomeAction } from './HomeAction';
 import type { HomeState } from './homeReducer';
-import * as Action from './HomeAction';
 import { Dimension } from '../../constant';
 
-export type HomeProps = {};
+export type HomeProps = {
+  action: HomeAction,
+};
 
 class HomeContainer extends BaseContainer<*> {
 
@@ -33,6 +35,13 @@ class HomeContainer extends BaseContainer<*> {
   constructor(props: any) {
     super(props);
     this.state = {};
+  }
+
+  /**
+   * @override
+   */
+  componentWillMount() {
+    super.componentWillMount();
   }
 
   /**
@@ -95,7 +104,9 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    action: bindActionCreators(Action, dispatch),
+    action: bindActionCreators({
+      ...require('./HomeAction'),
+    }, dispatch),
   };
 }
 
