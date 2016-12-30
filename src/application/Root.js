@@ -24,7 +24,7 @@ class Root extends BaseComponent {
     return (
       <Provider store={store}>
         <MuiThemeProvider>
-          <Application store={store} />
+          <Application />
         </MuiThemeProvider>
       </Provider>
     );

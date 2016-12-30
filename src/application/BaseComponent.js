@@ -10,6 +10,15 @@ class BaseComponent<Props> extends React.Component<*, Props, *> {
     super(props);
   }
 
+  componentDidMount() {
+  }
+
+  componentDidUpdate() {
+  }
+
+  componentWillUnmount() {
+  }
+
 }
 
 export default BaseComponent;

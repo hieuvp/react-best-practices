@@ -10,7 +10,7 @@ import BaseContainer from '../BaseContainer';
 import Header from '../../view/Header';
 import ChannelList from './channel/ChannelList';
 import MessageList from './message/MessageList';
-import ChatBox from './component/ChatBox';
+import ChatBox from './common/ChatBox';
 import * as Action from './HomeAction';
 import { Dimension } from '../../constant';
 

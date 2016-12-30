@@ -10,6 +10,27 @@ class BaseContainer<Props> extends BaseComponent<Props> {
     super(props);
   }
 
+  /**
+   * @override
+   */
+  componentDidMount() {
+    super.componentDidMount();
+  }
+
+  /**
+   * @override
+   */
+  componentDidUpdate() {
+    super.componentDidUpdate();
+  }
+
+  /**
+   * @override
+   */
+  componentWillUnmount() {
+    super.componentWillUnmount();
+  }
+
 }
 
 export default BaseContainer;
