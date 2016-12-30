@@ -3,6 +3,7 @@
  * @flow
  */
 import type { Action } from '../Action';
+import * as ActionType from '../Action';
 import type { Message } from '../../domain/message/Message';
 
 export type HomeState = {
