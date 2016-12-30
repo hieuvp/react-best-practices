@@ -4,6 +4,8 @@
  */
 import BaseComponent from '../application/BaseComponent';
 
+export type BaseProps = {};
+
 class BaseContainer<Props> extends BaseComponent<Props> {
 
   constructor(props: any) {

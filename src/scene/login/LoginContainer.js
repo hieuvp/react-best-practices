@@ -8,25 +8,21 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import type { BaseProps } from '../BaseContainer';
 import BaseContainer from '../BaseContainer';
-import Header from '../../view/Header';
-import ChannelList from './channel/ChannelList';
-import MessageList from './message/MessageList';
-import ChatBox from './common/ChatBox';
-import type { HomeState } from './homeReducer';
-import * as Action from './HomeAction';
-import { Dimension } from '../../constant';
+import type { LoginState } from './loginReducer';
+import * as Action from './LoginAction';
+import { Color } from '../../constant';
 
-export type HomeProps = {};
+export type LoginProps = {};
 
-class HomeContainer extends BaseContainer<*> {
+class LoginContainer extends BaseContainer<*> {
 
   static get TAG_NAME() {
-    return HomeContainer.name;
+    return LoginContainer.name;
   }
 
   static defaultProps: {};
 
-  props: (BaseProps & HomeProps & HomeState);
+  props: (BaseProps & LoginProps & LoginState);
 
   state: {};
 
@@ -58,38 +54,31 @@ class HomeContainer extends BaseContainer<*> {
 
   render() {
     return (
-      <div>
-        <Header />
-        <div style={styles.container}>
-          <div style={styles.main}>
-            <ChannelList {...this.props} />
-            <MessageList {...this.props} />
-          </div>
-          <ChatBox />
-        </div>
+      <div style={styles.container}>
+        <h3>Welcome to LoginContainer</h3>
       </div>
     );
   }
 
 }
 
-HomeContainer.defaultProps = {};
+LoginContainer.defaultProps = {};
 
 const styles = {
   container: {
-    maxWidth: Dimension.window.maxWidth,
-    width: '90%',
-    margin: '30px auto 30px',
-  },
-  main: {
     display: 'flex',
-    flexFlow: 'row wrap',
+    flexDirection: 'column',
+    flexGrow: 1,
+    flexShrink: 1,
+    flexBasis: 'auto',
+    alignItems: 'center',
+    backgroundColor: Color.white,
   },
 };
 
 function mapStateToProps(state) {
   return {
-    ...state[HomeContainer.TAG_NAME],
+    ...state[LoginContainer.TAG_NAME],
   };
 }
 
@@ -102,4 +91,4 @@ function mapDispatchToProps(dispatch) {
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(Radium(HomeContainer))
+)(Radium(LoginContainer))

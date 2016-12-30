@@ -1,16 +1,16 @@
 /**
- * Created by HieuVP on 12/28/16.
+ * Created by HieuVP on 12/30/16.
  * @flow
  */
 import type { Action } from '../Action';
 import type { Message } from '../../domain/message/Message';
 
-type State = {
+export type HomeState = {
   channels: Array<string>,
   messages: Array<Message>,
 };
 
-const initialState: State = {
+const initialState: HomeState = {
   channels: [
     'Dogs',
     'Cats',
@@ -27,7 +27,7 @@ const initialState: State = {
   ],
 };
 
-export default function(state: State = initialState, action: Action): State {
+export default function(state: HomeState = initialState, action: Action): HomeState {
   switch (action.type) {
     default:
       return state;
