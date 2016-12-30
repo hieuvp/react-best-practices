@@ -8,11 +8,13 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import type { BaseProps } from '../BaseContainer';
 import BaseContainer from '../BaseContainer';
+import type { LoginAction } from './LoginAction';
 import type { LoginState } from './loginReducer';
-import * as Action from './LoginAction';
 import { Color } from '../../constant';
 
-export type LoginProps = {};
+export type LoginProps = {
+  action: LoginAction,
+};
 
 class LoginContainer extends BaseContainer<*> {
 
@@ -29,6 +31,13 @@ class LoginContainer extends BaseContainer<*> {
   constructor(props: any) {
     super(props);
     this.state = {};
+  }
+
+  /**
+   * @override
+   */
+  componentWillMount() {
+    super.componentWillMount();
   }
 
   /**
@@ -84,7 +93,9 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    action: bindActionCreators(Action, dispatch),
+    action: bindActionCreators({
+      ...require('./LoginAction'),
+    }, dispatch),
   };
 }
 
