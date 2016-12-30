@@ -5,9 +5,10 @@ import {
   applyMiddleware,
   createStore
 } from 'redux';
-import thunk from 'redux-thunk';
+import ReduxPromise from 'redux-promise';
+import ReduxThunk from 'redux-thunk';
 
-const middlewares = applyMiddleware(thunk);
+const middlewares = applyMiddleware(ReduxPromise, ReduxThunk);
 
 export default function configureStore(reducers) {
   return createStore(reducers, middlewares);
