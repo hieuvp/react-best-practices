@@ -14,7 +14,10 @@ import MessageList from './message/MessageList';
 import ChatBox from './common/ChatBox';
 import type { HomeAction } from './HomeAction';
 import type { HomeState } from './homeReducer';
-import { Dimension } from '../../constant';
+import {
+  Dimension,
+  Style
+} from '../../constant';
 
 export type HomeProps = {
   action: HomeAction,
@@ -69,7 +72,7 @@ class HomeContainer extends BaseContainer<*> {
     return (
       <div>
         <Header />
-        <div style={styles.container}>
+        <div style={[Style.base.container, styles.container]}>
           <div style={styles.main}>
             <ChannelList {...this.props} />
             <MessageList {...this.props} />
@@ -87,7 +90,6 @@ HomeContainer.defaultProps = {};
 const styles = {
   container: {
     maxWidth: Dimension.window.maxWidth,
-    width: '90%',
     margin: '30px auto 30px',
   },
   main: {

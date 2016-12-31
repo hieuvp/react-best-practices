@@ -3,8 +3,12 @@
  * @flow
  */
 
-const common = {};
+const base = {
+  container: {
+    width: '90%',
+  },
+};
 
 export default {
-  common,
+  base,
 }

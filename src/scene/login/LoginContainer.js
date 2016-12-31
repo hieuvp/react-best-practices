@@ -13,9 +13,13 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import type { BaseProps } from '../BaseContainer';
 import BaseContainer from '../BaseContainer';
+import Header from '../../view/Header';
 import type { LoginAction } from './LoginAction';
 import type { LoginState } from './loginReducer';
-import { String } from '../../constant';
+import {
+  String,
+  Style
+} from '../../constant';
 
 export type LoginProps = {
   action: LoginAction,
@@ -71,17 +75,20 @@ class LoginContainer extends BaseContainer<*> {
 
   render() {
     return (
-      <Card style={styles.container}>
-        <CardText style={{textAlign: 'center'}}>
-          {String.login.description}
-        </CardText>
-        <RaisedButton
-          style={{display: 'block'}}
-          primary
-          label={String.login.label}
-          onClick={this.onClick}
-        />
-      </Card>
+      <div>
+        <Header />
+        <Card style={{...Style.base.container, ...styles.container}}>
+          <CardText style={{textAlign: 'center'}}>
+            {String.login.description}
+          </CardText>
+          <RaisedButton
+            style={{display: 'block'}}
+            primary
+            label={String.login.label}
+            onClick={this.onClick}
+          />
+        </Card>
+      </div>
     );
   }
 
