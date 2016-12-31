@@ -4,12 +4,19 @@
  */
 import HomeContainer from './home/HomeContainer';
 import homeReducer from './home/homeReducer';
+import LoginContainer from './login/LoginContainer';
+import loginReducer from './login/loginReducer';
 
 const SCENES = {
   [HomeContainer.TAG_NAME]: {
     component: HomeContainer,
     reducer: homeReducer,
     path: 'home',
+  },
+  [LoginContainer.TAG_NAME]: {
+    component: LoginContainer,
+    reducer: loginReducer,
+    path: 'login',
   },
 };
 
@@ -18,7 +25,8 @@ export const sceneReducers = (() => {
   const hasOwnProperty = Object.prototype.hasOwnProperty;
   for (const tag in SCENES) {
     if (hasOwnProperty.call(SCENES, tag)) {
-      reducers[tag] = SCENES[tag].reducer;
+      const reducer = SCENES[tag].reducer;
+      if (reducer) reducers[tag] = reducer;
     }
   }
   return reducers;
