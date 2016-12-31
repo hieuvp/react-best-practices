@@ -11,7 +11,10 @@ const message = {};
 
 const home = {};
 
-const login = {};
+const login = {
+  description: 'To start chatting away, please log in with your Google account.',
+  label: 'Log in with Google',
+};
 
 export default {
   app,

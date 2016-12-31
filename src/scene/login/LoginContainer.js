@@ -3,6 +3,11 @@
  * @flow
  */
 import React from 'react';
+import {
+  Card,
+  CardText,
+  RaisedButton
+} from 'material-ui';
 import Radium from 'radium';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -10,7 +15,7 @@ import type { BaseProps } from '../BaseContainer';
 import BaseContainer from '../BaseContainer';
 import type { LoginAction } from './LoginAction';
 import type { LoginState } from './loginReducer';
-import { Color } from '../../constant';
+import { String } from '../../constant';
 
 export type LoginProps = {
   action: LoginAction,
@@ -61,11 +66,22 @@ class LoginContainer extends BaseContainer<*> {
     super.componentWillUnmount();
   }
 
+  onClick = () => {
+  };
+
   render() {
     return (
-      <div style={styles.container}>
-        <h3>Welcome to LoginContainer</h3>
-      </div>
+      <Card style={styles.container}>
+        <CardText style={{textAlign: 'center'}}>
+          {String.login.description}
+        </CardText>
+        <RaisedButton
+          style={{display: 'block'}}
+          primary
+          label={String.login.label}
+          onClick={this.onClick}
+        />
+      </Card>
     );
   }
 
@@ -75,13 +91,9 @@ LoginContainer.defaultProps = {};
 
 const styles = {
   container: {
-    display: 'flex',
-    flexDirection: 'column',
-    flexGrow: 1,
-    flexShrink: 1,
-    flexBasis: 'auto',
-    alignItems: 'center',
-    backgroundColor: Color.white,
+    maxWidth: 800,
+    margin: '30px auto',
+    padding: 50,
   },
 };
 
