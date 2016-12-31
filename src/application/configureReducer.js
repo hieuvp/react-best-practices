@@ -4,11 +4,13 @@
  */
 import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
-import { reducers } from '../scene/Scene';
+import userReducer from '../domain/user/userReducer';
+import { sceneReducers } from '../scene/Scene';
 
 export default function configureReducer() {
   return combineReducers({
-    ...reducers,
     routerReducer,
+    userReducer,
+    ...sceneReducers,
   });
 }

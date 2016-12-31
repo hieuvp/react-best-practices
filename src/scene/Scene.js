@@ -13,7 +13,7 @@ const SCENES = {
   },
 };
 
-export const reducers = (() => {
+export const sceneReducers = (() => {
   const reducers = {};
   const hasOwnProperty = Object.prototype.hasOwnProperty;
   for (const tag in SCENES) {
