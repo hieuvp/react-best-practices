@@ -5,6 +5,7 @@
 import React from 'react';
 import { AppBar } from 'material-ui';
 import BaseView from './BaseView';
+import { String } from '../constant';
 
 export default class Header extends BaseView {
 
@@ -13,7 +14,7 @@ export default class Header extends BaseView {
   }
 
   render() {
-    return <AppBar title="Awesome Chat App" />;
+    return <AppBar title={String.app.headerTitle} />;
   }
 
 }
