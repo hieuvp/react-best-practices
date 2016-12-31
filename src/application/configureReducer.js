@@ -9,8 +9,8 @@ import { sceneReducers } from '../scene/Scene';
 
 export default function configureReducer() {
   return combineReducers({
-    routerReducer,
-    userReducer,
     ...sceneReducers,
+    userReducer,
+    routing: routerReducer,
   });
 }
