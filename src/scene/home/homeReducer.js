@@ -3,7 +3,7 @@
  * @flow
  */
 import type { Action } from '../../application/Action';
-import type { Message } from '../../domain/message/Message';
+import type { Message } from '../../domain/chat/Message';
 
 export type HomeState = {
   channels: Array<string>,

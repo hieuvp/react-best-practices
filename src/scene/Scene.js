@@ -11,12 +11,12 @@ const SCENES = {
   [HomeContainer.TAG_NAME]: {
     component: HomeContainer,
     reducer: homeReducer,
-    path: 'home',
+    path: ['home'],
   },
   [LoginContainer.TAG_NAME]: {
     component: LoginContainer,
     reducer: loginReducer,
-    path: 'login',
+    path: ['login'],
   },
 };
 
