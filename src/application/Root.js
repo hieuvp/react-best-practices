@@ -9,6 +9,7 @@ import { Provider } from 'react-redux';
 import { Router } from 'react-router';
 import BaseComponent from './BaseComponent';
 import Navigator from './Navigator';
+import DevTools from './DevTools';
 import configureReducer from './configureReducer';
 import configureStore from './configureStore';
 import configureHistory from './configureHistory';
@@ -27,9 +28,12 @@ class Root extends BaseComponent {
     return (
       <Provider store={store}>
         <MuiThemeProvider>
-          <Router history={history}>
-            {Navigator}
-          </Router>
+          <div>
+            <Router history={history}>
+              {Navigator}
+            </Router>
+            <DevTools />
+          </div>
         </MuiThemeProvider>
       </Provider>
     );
