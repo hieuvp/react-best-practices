@@ -13,6 +13,7 @@ import DevTools from './DevTools';
 import configureReducer from './configureReducer';
 import configureStore from './configureStore';
 import configureHistory from './configureHistory';
+import { Configuration } from '../constant';
 
 class Root extends BaseComponent {
 
@@ -32,7 +33,9 @@ class Root extends BaseComponent {
             <Router history={history}>
               {Navigator}
             </Router>
-            <DevTools />
+            {(() => {
+              if (Configuration.isDebuggable) return <DevTools />;
+            })()}
           </div>
         </MuiThemeProvider>
       </Provider>
