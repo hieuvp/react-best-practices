@@ -14,7 +14,7 @@ export default class Header extends BaseView {
   }
 
   render() {
-    return <AppBar title={String.app.headerTitle} />;
+    return <AppBar title={String.header_title} />;
   }
 
 }

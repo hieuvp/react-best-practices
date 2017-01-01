@@ -89,12 +89,12 @@ class LoginContainer extends BaseContainer<*> {
         <Header />
         <Card style={{...Style.base.container, ...styles.container}}>
           <CardText style={{textAlign: 'center'}}>
-            {String.login.description}
+            {String.login_description}
           </CardText>
           <RaisedButton
             style={{display: 'block'}}
             primary
-            label={String.login.label}
+            label={String.login_label}
             onClick={this.onClick}
           />
         </Card>

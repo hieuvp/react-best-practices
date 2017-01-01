@@ -16,7 +16,7 @@ class Application extends BaseComponent {
   render() {
     return (
       <div>
-        <Helmet title={String.app.name} />
+        <Helmet title={String.app_name} />
         {this.props.children}
       </div>
     );

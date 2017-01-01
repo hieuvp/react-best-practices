@@ -2,24 +2,12 @@
  * Created by HieuVP on 12/28/16.
  * @flow
  */
+import LocalizableString from 'react-localization';
+import Configuration from './Configuration';
 
-const app = {
-  name: 'Online Chat',
-  headerTitle: 'Awesome Chat App',
-};
+const localizableString = new LocalizableString({
+  [Configuration.language.english]: {...require('./String.en')},
+  [Configuration.language.vietnamese]: {...require('./String.vi')},
+});
 
-const message = {};
-
-const home = {};
-
-const login = {
-  description: 'To start chatting away, please log in with your Google account.',
-  label: 'Log in with Google',
-};
-
-export default {
-  app,
-  message,
-  home,
-  login,
-}
+export default localizableString;

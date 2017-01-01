@@ -5,6 +5,11 @@
 
 const isDebuggable: boolean = (process.env.NODE_ENV === 'development');
 
+const language = {
+  english: 'en',
+  vietnamese: 'vi',
+};
+
 const firebase = {
   apiKey: "AIzaSyB23TVsCsywiIN2p1sEu_6RkhtWCQVy7zU",
   authDomain: "awesome-chat-app-9d0b0.firebaseapp.com",
@@ -15,5 +20,6 @@ const firebase = {
 
 export default {
   isDebuggable,
+  language,
   firebase,
 };
