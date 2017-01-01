@@ -4,7 +4,15 @@
  */
 import BaseComponent from '../application/BaseComponent';
 
-export type BaseProps = {};
+export type BaseProps = {
+  children: any,
+  location: any,
+  params: any,
+  route: any,
+  routeParams: any,
+  router: any,
+  routes: Array<any>,
+};
 
 class BaseContainer<Props> extends BaseComponent<Props> {
 
