@@ -4,6 +4,7 @@
  */
 
 const app = {
+  name: 'Online Chat',
   headerTitle: 'Awesome Chat App',
 };
 

@@ -3,6 +3,7 @@
  * @flow
  */
 import React from 'react';
+import Helmet from 'react-helmet';
 import Radium from 'radium';
 import { connect } from 'react-redux';
 import type { BaseProps } from '../BaseContainer';
@@ -67,6 +68,7 @@ class ErrorContainer extends BaseContainer<*> {
   render() {
     return (
       <div style={styles.container}>
+        <Helmet title={this.props.document.title} />
         <h2>Error</h2>
       </div>
     );

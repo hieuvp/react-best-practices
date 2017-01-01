@@ -4,9 +4,17 @@
  */
 import type { Action } from '../../application/Action';
 
-export type ErrorState = {};
+export type ErrorState = {
+  document: {
+    title: string,
+  },
+};
 
-const initialState: ErrorState = {};
+const initialState: ErrorState = {
+  document: {
+    title: 'Error',
+  },
+};
 
 export default function(state: ErrorState = initialState, action: Action): ErrorState {
   switch (action.type) {
