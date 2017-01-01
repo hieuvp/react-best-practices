@@ -6,12 +6,9 @@ import React from 'react';
 import { MuiThemeProvider } from 'material-ui';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import { Provider } from 'react-redux';
-import {
-  Router,
-  Route
-} from 'react-router';
+import { Router } from 'react-router';
 import BaseComponent from './BaseComponent';
-import Application from './Application';
+import Navigator from './Navigator';
 import configureReducer from './configureReducer';
 import configureStore from './configureStore';
 import configureHistory from './configureHistory';
@@ -31,6 +28,7 @@ class Root extends BaseComponent {
       <Provider store={store}>
         <MuiThemeProvider>
           <Router history={history}>
+            <Navigator />
           </Router>
         </MuiThemeProvider>
       </Provider>

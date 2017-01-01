@@ -29,6 +29,13 @@ class BaseContainer<Props> extends BaseComponent<Props> {
   /**
    * @override
    */
+  componentWillReceiveProps(nextProps: any) {
+    super.componentWillReceiveProps(nextProps);
+  }
+
+  /**
+   * @override
+   */
   componentDidUpdate() {
     super.componentDidUpdate();
   }

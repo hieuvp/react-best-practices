@@ -16,6 +16,9 @@ class BaseComponent<Props> extends React.Component<*, Props, *> {
   componentDidMount() {
   }
 
+  componentWillReceiveProps(nextProps: any) {
+  }
+
   componentDidUpdate() {
   }
 
