@@ -1,8 +1,9 @@
 /**
- * Created by HieuVP on 12/30/16.
+ * Created by HieuVP on 1/1/17.
  * @flow
  */
 import React from 'react';
+import Helmet from 'react-helmet';
 import Radium from 'radium';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -14,6 +15,7 @@ import MessageList from './message/MessageList';
 import ChatBox from './common/ChatBox';
 import type { HomeAction } from './HomeAction';
 import type { HomeState } from './homeReducer';
+import { homeReducerName } from './homeReducer';
 import {
   Dimension,
   Style
@@ -57,6 +59,13 @@ class HomeContainer extends BaseContainer<*> {
   /**
    * @override
    */
+  componentWillReceiveProps(nextProps: any) {
+    super.componentWillReceiveProps(nextProps);
+  }
+
+  /**
+   * @override
+   */
   componentDidUpdate() {
     super.componentDidUpdate();
   }
@@ -71,6 +80,7 @@ class HomeContainer extends BaseContainer<*> {
   render() {
     return (
       <div>
+        <Helmet title={this.props.document.title} />
         <Header />
         <div style={[Style.base.container, styles.container]}>
           <div style={styles.main}>
@@ -100,7 +110,7 @@ const styles = {
 
 function mapStateToProps(state) {
   return {
-    ...state.homeReducer,
+    ...state[homeReducerName],
   };
 }
 

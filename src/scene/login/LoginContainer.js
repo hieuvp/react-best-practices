@@ -1,8 +1,9 @@
 /**
- * Created by HieuVP on 12/30/16.
+ * Created by HieuVP on 1/1/17.
  * @flow
  */
 import React from 'react';
+import Helmet from 'react-helmet';
 import {
   Card,
   CardText,
@@ -16,6 +17,7 @@ import BaseContainer from '../BaseContainer';
 import Header from '../../view/Header';
 import type { LoginAction } from './LoginAction';
 import type { LoginState } from './loginReducer';
+import { loginReducerName } from './loginReducer';
 import {
   String,
   Style
@@ -59,6 +61,13 @@ class LoginContainer extends BaseContainer<*> {
   /**
    * @override
    */
+  componentWillReceiveProps(nextProps: any) {
+    super.componentWillReceiveProps(nextProps);
+  }
+
+  /**
+   * @override
+   */
   componentDidUpdate() {
     super.componentDidUpdate();
   }
@@ -76,6 +85,7 @@ class LoginContainer extends BaseContainer<*> {
   render() {
     return (
       <div>
+        <Helmet title={this.props.document.title} />
         <Header />
         <Card style={{...Style.base.container, ...styles.container}}>
           <CardText style={{textAlign: 'center'}}>
@@ -106,7 +116,7 @@ const styles = {
 
 function mapStateToProps(state) {
   return {
-    ...state.loginReducer,
+    ...state[loginReducerName],
   };
 }
 
