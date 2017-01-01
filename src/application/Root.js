@@ -28,7 +28,7 @@ class Root extends BaseComponent {
       <Provider store={store}>
         <MuiThemeProvider>
           <Router history={history}>
-            <Navigator />
+            {Navigator}
           </Router>
         </MuiThemeProvider>
       </Provider>

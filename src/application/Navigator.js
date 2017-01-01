@@ -4,26 +4,17 @@
  */
 import React from 'react';
 import { Route } from 'react-router';
-import BaseComponent from './BaseComponent';
 import Application from './Application';
 import HomeContainer from '../scene/home/HomeContainer';
 import LoginContainer from '../scene/login/LoginContainer';
+import ErrorContainer from '../scene/error/ErrorContainer';
 
-class Navigator extends BaseComponent {
-
-  constructor(props: any) {
-    super(props);
-  }
-
-  render() {
-    return (
-      <Route path="/" component={Application}>
-        <Route path="home" component={HomeContainer} />
-        <Route path="login" component={LoginContainer} />
-      </Route>
-    );
-  }
-
-}
+const Navigator = (
+  <Route path="/" component={Application}>
+    <Route path="home" component={HomeContainer} />
+    <Route path="login" component={LoginContainer} />
+    <Route path="*" component={ErrorContainer} />
+  </Route>
+);
 
 export default Navigator;
