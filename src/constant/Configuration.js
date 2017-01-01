@@ -16,4 +16,4 @@ const firebase = {
 export default {
   isDebuggable,
   firebase,
-}
+};
