@@ -106,7 +106,7 @@ const styles = {
 
 function mapStateToProps(state) {
   return {
-    ...state[LoginContainer.TAG_NAME],
+    ...state.loginReducer,
   };
 }
 

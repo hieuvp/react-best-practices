@@ -5,12 +5,16 @@
 import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
 import userReducer from '../domain/user/userReducer';
-import { sceneReducers } from '../scene/Scene';
+import loginReducer from '../scene/login/loginReducer';
+import homeReducer from '../scene/home/homeReducer';
+import errorReducer from '../scene/error/errorReducer';
 
 export default function configureReducer() {
   return combineReducers({
-    ...sceneReducers,
-    userReducer,
     routing: routerReducer,
+    userReducer,
+    loginReducer,
+    homeReducer,
+    errorReducer,
   });
 }

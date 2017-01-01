@@ -5,14 +5,14 @@
 import React from 'react';
 import { Route } from 'react-router';
 import Application from './Application';
-import HomeContainer from '../scene/home/HomeContainer';
 import LoginContainer from '../scene/login/LoginContainer';
+import HomeContainer from '../scene/home/HomeContainer';
 import ErrorContainer from '../scene/error/ErrorContainer';
 
 const Navigator = (
   <Route path="/" component={Application}>
-    <Route path="home" component={HomeContainer} />
     <Route path="login" component={LoginContainer} />
+    <Route path="home" component={HomeContainer} />
     <Route path="*" component={ErrorContainer} />
   </Route>
 );

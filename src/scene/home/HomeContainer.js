@@ -100,7 +100,7 @@ const styles = {
 
 function mapStateToProps(state) {
   return {
-    ...state[HomeContainer.TAG_NAME],
+    ...state.homeReducer,
   };
 }
 

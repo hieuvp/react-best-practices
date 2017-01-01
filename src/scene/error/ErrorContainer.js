@@ -92,7 +92,7 @@ const styles = {
 
 function mapStateToProps(state) {
   return {
-    ...state[ErrorContainer.TAG_NAME],
+    ...state.errorReducer,
   };
 }
 
