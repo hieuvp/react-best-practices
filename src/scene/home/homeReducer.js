@@ -1,16 +1,24 @@
 /**
- * Created by HieuVP on 12/30/16.
+ * Created by HieuVP on 1/1/17.
  * @flow
  */
 import type { Action } from '../../application/Action';
 import type { Message } from '../../domain/chat/Message';
 
+export const homeReducerName = 'homeContainer';
+
 export type HomeState = {
+  document: {
+    title: string,
+  },
   channels: Array<string>,
   messages: Array<Message>,
 };
 
 const initialState: HomeState = {
+  document: {
+    title: 'Home',
+  },
   channels: [
     'Dogs',
     'Cats',

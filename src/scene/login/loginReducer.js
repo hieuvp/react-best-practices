@@ -1,12 +1,22 @@
 /**
- * Created by HieuVP on 12/30/16.
+ * Created by HieuVP on 1/1/17.
  * @flow
  */
 import type { Action } from '../../application/Action';
 
-export type LoginState = {};
+export const loginReducerName = 'loginContainer';
 
-const initialState: LoginState = {};
+export type LoginState = {
+  document: {
+    title: string,
+  },
+};
+
+const initialState: LoginState = {
+  document: {
+    title: 'Login',
+  },
+};
 
 export default function(state: LoginState = initialState, action: Action): LoginState {
   switch (action.type) {

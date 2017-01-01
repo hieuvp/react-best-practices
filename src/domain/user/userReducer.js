@@ -1,9 +1,11 @@
 /**
- * Created by HieuVP on 12/31/16.
+ * Created by HieuVP on 1/1/17.
  * @flow
  */
 import type { Action } from '../../application/Action';
 import type { User } from './User';
+
+export const userReducerName = 'user';
 
 export type UserState = {
   loggedUser?: User,

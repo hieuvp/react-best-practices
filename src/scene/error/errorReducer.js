@@ -4,6 +4,8 @@
  */
 import type { Action } from '../../application/Action';
 
+export const errorReducerName = 'errorContainer';
+
 export type ErrorState = {
   document: {
     title: string,

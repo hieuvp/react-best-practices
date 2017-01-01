@@ -9,6 +9,7 @@ import { connect } from 'react-redux';
 import type { BaseProps } from '../BaseContainer';
 import BaseContainer from '../BaseContainer';
 import type { ErrorState } from './errorReducer';
+import { errorReducerName } from './errorReducer';
 import { Color } from '../../constant';
 
 export type ErrorProps = {};
@@ -92,7 +93,7 @@ const styles = {
 
 function mapStateToProps(state) {
   return {
-    ...state.errorReducer,
+    ...state[errorReducerName],
   };
 }
 
