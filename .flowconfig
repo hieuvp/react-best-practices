@@ -4,7 +4,6 @@
 
 [libs]
 <PROJECT_ROOT>/flow-typed
-<PROJECT_ROOT>/definitely-typed
 <PROJECT_ROOT>/node_modules/fbjs/flow/lib
 
 [options]
