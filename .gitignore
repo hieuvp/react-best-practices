@@ -3,6 +3,7 @@
 # dependencies
 node_modules
 flow-typed
+definitely-typed
 
 # testing
 coverage
