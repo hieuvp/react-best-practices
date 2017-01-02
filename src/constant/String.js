@@ -4,10 +4,14 @@
  */
 import LocalizableString from 'react-localization';
 import Configuration from './Configuration';
+import English from './String.en';
+import Vietnamese from './String.vi';
+
+const language = Configuration.language;
 
 const localizableString = new LocalizableString({
-  [Configuration.language.english]: {...require('./String.en')},
-  [Configuration.language.vietnamese]: {...require('./String.vi')},
+  [language.english]: {...English},
+  [language.vietnamese]: {...Vietnamese},
 });
 
 export default localizableString;
