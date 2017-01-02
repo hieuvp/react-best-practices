@@ -9,9 +9,7 @@ import Vietnamese from './String.vi';
 
 const language = Configuration.language;
 
-const localizableString = new LocalizableString({
+export default new LocalizableString({
   [language.english]: {...English},
   [language.vietnamese]: {...Vietnamese},
 });
-
-export default localizableString;

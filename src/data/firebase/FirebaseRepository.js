@@ -4,6 +4,12 @@
  */
 import BaseRepository from '../BaseRepository';
 
-export default class FirebaseRepository extends BaseRepository {
+class FirebaseRepository extends BaseRepository {
+
+  constructor() {
+    super();
+  }
 
 }
+
+export default new FirebaseRepository();
