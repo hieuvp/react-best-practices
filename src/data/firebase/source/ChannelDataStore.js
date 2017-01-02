@@ -1,4 +1,8 @@
 /**
- * Created by HieuVP on 1/1/17.
+ * Created by HieuVP on 1/2/17.
  * @flow
  */
+
+export default class ChannelDataStore {
+
+}
