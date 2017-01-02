@@ -2,6 +2,7 @@ import 'babel-polyfill';
 import gulp from 'gulp';
 import shell from 'gulp-shell';
 import copy from 'gulp-copy';
+import runSequence from 'run-sequence';
 
 const path = {
   parent: '/',
@@ -29,3 +30,6 @@ gulp.task('install-definitely-typed', () => gulp.src(definitelyTypedSource)
   .pipe(copy(path.definitelyTyped, {prefix: 10}))
 );
 
+gulp.task('clean-install', ['install-node-modules'], (callback) => {
+  runSequence('install-flow-typed', 'install-definitely-typed', callback);
+});
