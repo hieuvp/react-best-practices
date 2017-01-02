@@ -12,9 +12,7 @@ const path = {
   definitelyTyped: 'definitely-typed',
 };
 
-const definitelyTypedSource = [
-  `${path.nodeModules}/firebase/firebase.d.ts`,
-];
+const definitelyTypedSource = [];
 
 gulp.task('install-node-modules', () => gulp.src(path.parent)
   .pipe(shell(`rm -rf ${path.nodeModules}`))
