@@ -3,7 +3,10 @@
  * @flow
  */
 
+export const SIGN_IN: 'SIGN_IN' = 'SIGN_IN';
+
 export type Action = {type: typeof undefined}
+  | {type: typeof SIGN_IN}
   ;
 
 export type ThunkAction = (dispatch: Dispatch, getState: GetState) => any;
