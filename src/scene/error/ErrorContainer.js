@@ -14,7 +14,7 @@ import { Color } from '../../constant';
 
 export type ErrorProps = {};
 
-class ErrorContainer extends BaseContainer<*> {
+class ErrorContainer extends BaseContainer<BaseProps & ErrorProps & ErrorState> {
 
   static get TAG_NAME() {
     return ErrorContainer.name;

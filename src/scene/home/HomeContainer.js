@@ -25,7 +25,7 @@ export type HomeProps = {
   action: HomeAction,
 };
 
-class HomeContainer extends BaseContainer<*> {
+class HomeContainer extends BaseContainer<BaseProps & HomeProps & HomeState> {
 
   static get TAG_NAME() {
     return HomeContainer.name;

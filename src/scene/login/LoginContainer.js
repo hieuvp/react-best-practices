@@ -27,7 +27,7 @@ export type LoginProps = {
   action: LoginAction,
 };
 
-class LoginContainer extends BaseContainer<*> {
+class LoginContainer extends BaseContainer<BaseProps & LoginProps & LoginState> {
 
   static get TAG_NAME() {
     return LoginContainer.name;
