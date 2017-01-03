@@ -8,7 +8,7 @@ import type { User } from './User';
 export const userReducerName = 'user';
 
 export type UserState = {
-  loggedUser?: User,
+  loggedUser: ?User,
 };
 
 const initialState: UserState = {

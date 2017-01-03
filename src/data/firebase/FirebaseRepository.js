@@ -22,6 +22,10 @@ class FirebaseRepository extends BaseRepository {
     this.messageDataStore = new MessageDataStore(app);
   }
 
+  signInWithRedirect() {
+    this.googleAuthenticator.signInWithRedirect();
+  }
+
 }
 
 export default new FirebaseRepository();

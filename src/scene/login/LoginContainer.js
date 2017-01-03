@@ -80,7 +80,7 @@ class LoginContainer extends BaseContainer<BaseProps & LoginProps & LoginState> 
   }
 
   onClick = () => {
-    this.props.action.signInGoogle();
+    this.props.action.signIn();
   };
 
   render() {
