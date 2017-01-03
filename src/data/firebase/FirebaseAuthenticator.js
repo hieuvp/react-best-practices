@@ -8,11 +8,11 @@ import type { User } from '../../domain/user/User';
 
 export default class FirebaseAuthenticator {
   app: firebase.app.App;
-  subject: Subject<?User>;
+  userSubject: Subject<?User>;
 
   constructor(app: firebase.app.App) {
     this.app = app;
-    this.subject = new Subject();
+    this.userSubject = new Subject();
     this.auth.onAuthStateChanged(this.onAuthStateChanged);
   }
 
@@ -26,7 +26,7 @@ export default class FirebaseAuthenticator {
         email: object.email,
         avatar: object.photoURL,
       };
-    this.subject.next(user);
+    this.userSubject.next(user);
   };
 
 }

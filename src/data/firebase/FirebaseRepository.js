@@ -3,11 +3,13 @@
  * @flow
  */
 import firebase from 'firebase';
+import { Observable } from 'rxjs';
 import BaseRepository from '../BaseRepository';
 import GoogleAuthenticator from './auth/GoogleAuthenticator';
 import ChannelDataStore from './source/ChannelDataStore';
 import MessageDataStore from './source/MessageDataStore';
 import { Configuration } from '../../constant';
+import type { User } from '../../domain/user/User';
 
 class FirebaseRepository extends BaseRepository {
   googleAuthenticator: GoogleAuthenticator;
@@ -24,6 +26,10 @@ class FirebaseRepository extends BaseRepository {
 
   signInWithRedirect() {
     this.googleAuthenticator.signInWithRedirect();
+  }
+
+  get user(): Observable<?User> {
+    return this.googleAuthenticator.userSubject.asObservable();
   }
 
 }

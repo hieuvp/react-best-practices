@@ -3,6 +3,7 @@
  * @flow
  */
 import type { Action } from '../../application/Action';
+import * as ActionType from '../../application/Action';
 import type { User } from './User';
 
 export const userReducerName = 'user';
@@ -17,6 +18,11 @@ const initialState: UserState = {
 
 export default function(state: UserState = initialState, action: Action): UserState {
   switch (action.type) {
+    case ActionType.ADD_LOGGED_USER_LISTENER: {
+      return {
+        ...state,
+      };
+    }
     default:
       return state;
   }

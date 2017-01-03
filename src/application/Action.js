@@ -3,9 +3,12 @@
  * @flow
  */
 
+export const ADD_LOGGED_USER_LISTENER: 'ADD_LOGGED_USER_LISTENER' = 'ADD_LOGGED_USER_LISTENER';
+
 export const SIGN_IN: 'SIGN_IN' = 'SIGN_IN';
 
 export type Action = {type: typeof undefined}
+  | {type: typeof ADD_LOGGED_USER_LISTENER}
   | {type: typeof SIGN_IN}
   ;
 
