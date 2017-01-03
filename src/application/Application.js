@@ -1,16 +1,45 @@
 /**
- * Created by HieuVP on 12/28/16.
+ * Created by HieuVP on 1/4/17.
  * @flow
  */
 import React from 'react';
 import Helmet from 'react-helmet';
-import BaseComponent from './BaseComponent';
+import Radium from 'radium';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import type { BaseProps } from './BaseContainer';
+import BaseContainer from './BaseContainer';
+import type { ApplicationAction } from './ApplicationAction';
 import { String } from '../constant';
 
-class Application extends BaseComponent {
+export type ApplicationProps = {
+  action: ApplicationAction,
+};
+
+class Application extends BaseContainer<BaseProps & ApplicationProps> {
+
+  static get TAG_NAME() {
+    return Application.name;
+  }
+
+  props: (BaseProps & ApplicationProps);
 
   constructor(props: any) {
     super(props);
+  }
+
+  /**
+   * @override
+   */
+  componentWillMount() {
+    super.componentWillMount();
+  }
+
+  /**
+   * @override
+   */
+  componentWillUnmount() {
+    super.componentWillUnmount();
   }
 
   render() {
@@ -24,4 +53,14 @@ class Application extends BaseComponent {
 
 }
 
-export default Application;
+function mapDispatchToProps(dispatch) {
+  return {
+    action: bindActionCreators({
+      ...require('./ApplicationAction'),
+    }, dispatch),
+  };
+}
+
+export default connect(
+  mapDispatchToProps,
+)(Radium(Application))

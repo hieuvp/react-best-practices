@@ -2,7 +2,7 @@
  * Created by HieuVP on 12/28/16.
  * @flow
  */
-import BaseComponent from '../application/BaseComponent';
+import BaseComponent from './BaseComponent';
 
 export type BaseProps = {
   children: any,

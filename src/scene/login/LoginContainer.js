@@ -12,8 +12,8 @@ import {
 import Radium from 'radium';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import type { BaseProps } from '../BaseContainer';
-import BaseContainer from '../BaseContainer';
+import type { BaseProps } from '../../application/BaseContainer';
+import BaseContainer from '../../application/BaseContainer';
 import Header from '../../view/Header';
 import type { LoginAction } from './LoginAction';
 import type { LoginState } from './loginReducer';
