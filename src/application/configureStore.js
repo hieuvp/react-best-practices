@@ -6,6 +6,11 @@ import {
   compose,
   createStore
 } from 'redux';
+import {
+  autoRehydrate,
+  persistStore
+} from 'redux-persist';
+import localForage from 'localforage';
 import ReduxPromise from 'redux-promise';
 import ReduxThunk from 'redux-thunk';
 import DevTools from './DevTools';
@@ -14,15 +19,19 @@ import { Configuration } from '../constant';
 const middlewares = applyMiddleware(ReduxPromise, ReduxThunk);
 
 let enhancer;
+const composers = [middlewares, autoRehydrate()];
 if (Configuration.isDebuggable) {
-  enhancer = compose(
-    middlewares,
-    DevTools.instrument(),
-  );
+  enhancer = compose(...composers, DevTools.instrument());
 } else {
-  enhancer = compose(middlewares);
+  enhancer = compose(...composers);
 }
 
-export default function configureStore(reducers) {
-  return createStore(reducers, enhancer);
+export default function configureStore({reducers, whitelist}) {
+  const store = createStore(reducers, enhancer);
+  const persistorConfig = {
+    whitelist,
+    storage: localForage,
+  };
+  persistStore(store, persistorConfig);
+  return store;
 }
