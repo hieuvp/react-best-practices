@@ -4,6 +4,7 @@
  */
 import React from 'react';
 import Helmet from 'react-helmet';
+import { CircularProgress } from 'material-ui';
 import Radium from 'radium';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -24,8 +25,15 @@ class Application extends BaseContainer<BaseProps & ApplicationProps> {
 
   props: (BaseProps & ApplicationProps);
 
+  state: {
+    rehydrated: boolean,
+  };
+
   constructor(props: any) {
     super(props);
+    this.state = {
+      rehydrated: false,
+    };
   }
 
   /**
@@ -43,16 +51,36 @@ class Application extends BaseContainer<BaseProps & ApplicationProps> {
     super.componentWillUnmount();
   }
 
+  renderLoader = () => {
+    return (
+      <div style={styles.container}>
+        <CircularProgress size="60" thickness="6" />
+      </div>
+    );
+  };
+
   render() {
     return (
       <div>
         <Helmet title={String.app_name} />
-        {this.props.children}
+        {(() => (
+          this.state.rehydrated ? this.props.children : this.renderLoader()
+        ))()}
       </div>
     );
   }
 
 }
+
+const styles = {
+  container: {
+    display: 'flex',
+    height: '100vh',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#fafafa',
+  },
+};
 
 function mapStateToProps() {
   return {};

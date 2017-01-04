@@ -6,13 +6,13 @@ import {
   compose,
   createStore
 } from 'redux';
+import ReduxPromise from 'redux-promise';
+import ReduxThunk from 'redux-thunk';
 import {
   autoRehydrate,
   persistStore
 } from 'redux-persist';
 import localForage from 'localforage';
-import ReduxPromise from 'redux-promise';
-import ReduxThunk from 'redux-thunk';
 import DevTools from './DevTools';
 import { Configuration } from '../constant';
 
