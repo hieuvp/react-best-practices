@@ -33,6 +33,7 @@ class Application extends BaseContainer<BaseProps & ApplicationProps> {
    */
   componentWillMount() {
     super.componentWillMount();
+    this.props.action.addLoggedUserListener();
   }
 
   /**
@@ -53,6 +54,10 @@ class Application extends BaseContainer<BaseProps & ApplicationProps> {
 
 }
 
+function mapStateToProps(state) {
+  return {};
+}
+
 function mapDispatchToProps(dispatch) {
   return {
     action: bindActionCreators({
@@ -62,5 +67,6 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default connect(
+  mapStateToProps,
   mapDispatchToProps,
 )(Radium(Application))

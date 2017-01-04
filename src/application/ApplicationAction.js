@@ -4,6 +4,7 @@
  */
 import type { ThunkAction } from './Action';
 import * as ActionType from './Action';
+import userService from '../domain/user/UserService';
 
 export function addLoggedUserListener(): ThunkAction {
   return (dispatch) => {
