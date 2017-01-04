@@ -54,7 +54,7 @@ class Application extends BaseContainer<BaseProps & ApplicationProps> {
 
 }
 
-function mapStateToProps(state) {
+function mapStateToProps() {
   return {};
 }
 

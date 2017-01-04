@@ -4,12 +4,16 @@
  */
 import type { ThunkAction } from './Action';
 import * as ActionType from './Action';
+import type { User } from '../domain/user/User';
 import userService from '../domain/user/UserService';
 
 export function addLoggedUserListener(): ThunkAction {
   return (dispatch) => {
-    dispatch({
-      type: ActionType.ADD_LOGGED_USER_LISTENER,
+    userService.loggedUser.subscribe((user: ?User) => {
+      dispatch({
+        type: ActionType.ADD_LOGGED_USER_LISTENER,
+        user,
+      });
     });
   };
 }
