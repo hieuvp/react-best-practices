@@ -14,6 +14,7 @@ import type { ApplicationAction } from './ApplicationAction';
 import { String } from '../constant';
 
 export type ApplicationProps = {
+  rehydrated: boolean,
   action: ApplicationAction,
 };
 
@@ -25,15 +26,8 @@ class Application extends BaseContainer<BaseProps & ApplicationProps> {
 
   props: (BaseProps & ApplicationProps);
 
-  state: {
-    rehydrated: boolean,
-  };
-
   constructor(props: any) {
     super(props);
-    this.state = {
-      rehydrated: false,
-    };
   }
 
   /**
@@ -54,7 +48,7 @@ class Application extends BaseContainer<BaseProps & ApplicationProps> {
   renderLoader = () => {
     return (
       <div style={styles.container}>
-        <CircularProgress size="60" thickness="6" />
+        <CircularProgress size={60} thickness={6} />
       </div>
     );
   };
@@ -64,7 +58,7 @@ class Application extends BaseContainer<BaseProps & ApplicationProps> {
       <div>
         <Helmet title={String.app_name} />
         {(() => (
-          this.state.rehydrated ? this.props.children : this.renderLoader()
+          this.props.rehydrated ? this.props.children : this.renderLoader()
         ))()}
       </div>
     );
