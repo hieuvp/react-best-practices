@@ -3,6 +3,6 @@
  * @flow
  */
 
-export default class DefaultObserver {
+export default class ErrorObserver {
 
 }
