@@ -3,16 +3,16 @@
  * @flow
  */
 import firebase from 'firebase';
-import { Subject } from 'rxjs';
+import Rx from 'rx';
 import type { User } from '../../domain/user/User';
 
 export default class FirebaseAuthenticator {
   app: firebase.app.App;
-  userSubject: Subject<?User>;
+  userSubject: Rx.Subject<?User>;
 
   constructor(app: firebase.app.App) {
     this.app = app;
-    this.userSubject = new Subject();
+    this.userSubject = new Rx.Subject();
     this.auth.onAuthStateChanged(this.onAuthStateChanged);
   }
 

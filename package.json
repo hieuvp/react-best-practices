@@ -38,7 +38,7 @@
     "redux-persist": "^4.0.1",
     "redux-promise": "^0.5.3",
     "redux-thunk": "^2.1.0",
-    "rxjs": "^5.0.2"
+    "rx": "^4.1.0"
   },
   "scripts": {
     "start": "react-app-rewired start",

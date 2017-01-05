@@ -2,7 +2,7 @@
  * Created by HieuVP on 1/3/17.
  * @flow
  */
-import { Observable } from 'rxjs';
+import Rx from 'rx';
 import BaseService from '../BaseService';
 import type { User } from './User';
 import firebaseRepository from '../../data/firebase/FirebaseRepository';
@@ -17,7 +17,7 @@ class UserService extends BaseService {
     firebaseRepository.signInWithRedirect();
   }
 
-  get loggedUser(): Observable<?User> {
+  get loggedUser(): Rx.Observable<?User> {
     return firebaseRepository.user;
   }
 

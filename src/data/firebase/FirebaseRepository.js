@@ -3,7 +3,7 @@
  * @flow
  */
 import firebase from 'firebase';
-import { Observable } from 'rxjs';
+import Rx from 'rx';
 import BaseRepository from '../BaseRepository';
 import GoogleAuthenticator from './auth/GoogleAuthenticator';
 import ChannelDataStore from './source/ChannelDataStore';
@@ -28,7 +28,7 @@ class FirebaseRepository extends BaseRepository {
     this.googleAuthenticator.signInWithRedirect();
   }
 
-  get user(): Observable<?User> {
+  get user(): Rx.Observable<?User> {
     return this.googleAuthenticator.userSubject.asObservable();
   }
 
