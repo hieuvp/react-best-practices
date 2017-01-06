@@ -13,7 +13,7 @@ const path = {
 gulp.task('install-node-modules', () => gulp.src(path.parent)
   .pipe(shell(`rm -rf ${path.nodeModules}`))
   .pipe(wait(1000))
-  .pipe(shell('npm install'))
+  .pipe(shell('yarn install'))
 );
 
 gulp.task('install-flow-typed', () => gulp.src(path.parent)
