@@ -26,7 +26,7 @@ export default class FirebaseAuthenticator {
         email: object.email,
         avatar: object.photoURL,
       };
-    this.userSubject.next(user);
+    this.userSubject.onNext(user);
   };
 
 }
