@@ -18,7 +18,8 @@ class UserService extends BaseService {
   }
 
   get loggedUser(): Rx.Observable<?User> {
-    return firebaseRepository.user;
+    return firebaseRepository.user
+      .catch(this.bundleError);
   }
 
 }
