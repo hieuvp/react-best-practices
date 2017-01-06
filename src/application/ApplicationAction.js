@@ -4,7 +4,7 @@
  */
 import type { ThunkAction } from './Action';
 import * as ActionType from './Action';
-import handleError from './handleError';
+import handleError from '../domain/error/handleError';
 import type { User } from '../domain/user/User';
 import userService from '../domain/user/UserService';
 
