@@ -17,20 +17,43 @@ import { Configuration } from '../constant';
 
 class Root extends BaseComponent {
 
+  state: {
+    store: any,
+    history: any,
+    rehydrated: boolean,
+  };
+
   constructor(props: any) {
     super(props);
+    this.state = {
+      store: undefined,
+      history: undefined,
+      rehydrated: false,
+    };
     injectTapEventPlugin();
   }
 
-  render() {
+  /**
+   * @override
+   */
+  componentWillMount() {
+    super.componentWillMount();
     const reducers = configureReducer();
-    const store = configureStore({reducers, whitelist: whitelistReducers});
+    const store = configureStore({
+      reducers,
+      whitelist: whitelistReducers,
+      onComplete: () => this.setState({rehydrated: true}),
+    });
     const history = configureHistory(store);
+    this.setState({store, history});
+  }
+
+  render() {
     return (
-      <Provider store={store}>
+      <Provider store={this.state.store}>
         <MuiThemeProvider>
           <div>
-            <Router history={history}>
+            <Router history={this.state.history}>
               {Navigator}
             </Router>
             {(() => {
