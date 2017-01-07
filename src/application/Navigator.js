@@ -3,16 +3,29 @@
  * @flow
  */
 import React from 'react';
-import { Route } from 'react-router';
+import {
+  Route,
+  IndexRedirect
+} from 'react-router';
 import Application from './Application';
 import LoginContainer from '../scene/login/LoginContainer';
 import HomeContainer from '../scene/home/HomeContainer';
 import NoMatchContainer from '../scene/error/page-not-found/NoMatchContainer';
 
+/**
+ * @readonly
+ * @enum {string}
+ */
+export const RoutePath = {
+  LOGIN: 'login',
+  HOME: 'home',
+};
+
 export default (
   <Route path="/" component={Application}>
-    <Route path="login" component={LoginContainer} />
-    <Route path="home" component={HomeContainer} />
+    <IndexRedirect to={RoutePath.HOME} />
+    <Route path={RoutePath.LOGIN} component={LoginContainer} />
+    <Route path={RoutePath.HOME} component={HomeContainer} />
     <Route path="*" component={NoMatchContainer} />
   </Route>
 );
