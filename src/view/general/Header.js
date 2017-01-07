@@ -4,8 +4,8 @@
  */
 import React from 'react';
 import { AppBar } from 'material-ui';
-import BaseView from './BaseView';
-import { String } from '../constant';
+import BaseView from '../BaseView';
+import { String } from '../../constant';
 
 export default class Header extends BaseView {
 
