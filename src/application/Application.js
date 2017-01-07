@@ -1,5 +1,5 @@
 /**
- * Created by HieuVP on 1/4/17.
+ * Created by HieuVP on 1/7/17.
  * @flow
  */
 import React from 'react';
@@ -11,20 +11,20 @@ import { connect } from 'react-redux';
 import type { BaseProps } from './BaseContainer';
 import BaseContainer from './BaseContainer';
 import type { ApplicationAction } from './ApplicationAction';
-import { String } from '../constant';
+import type { ApplicationState } from './ApplicationReducer';
+import { applicationReducerName } from './ApplicationReducer';
 
 export type ApplicationProps = {
-  rehydrated: boolean,
   action: ApplicationAction,
 };
 
-class Application extends BaseContainer<BaseProps & ApplicationProps> {
+class Application extends BaseContainer<BaseProps & ApplicationProps & ApplicationState> {
 
   static get TAG_NAME() {
     return Application.name;
   }
 
-  props: (BaseProps & ApplicationProps);
+  props: (BaseProps & ApplicationProps & ApplicationState);
 
   constructor(props: any) {
     super(props);
@@ -56,7 +56,7 @@ class Application extends BaseContainer<BaseProps & ApplicationProps> {
   render() {
     return (
       <div>
-        <Helmet title={String.app_name} />
+        <Helmet title={this.props.document.title} />
         {(() => (
           this.props.rehydrated ? this.props.children : this.renderLoader()
         ))()}
@@ -76,8 +76,10 @@ const styles = {
   },
 };
 
-function mapStateToProps() {
-  return {};
+function mapStateToProps(state) {
+  return {
+    ...state[applicationReducerName],
+  };
 }
 
 function mapDispatchToProps(dispatch) {
