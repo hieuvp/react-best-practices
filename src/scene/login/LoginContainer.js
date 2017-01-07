@@ -16,8 +16,8 @@ import type { BaseProps } from '../../application/BaseContainer';
 import BaseContainer from '../../application/BaseContainer';
 import Header from '../../view/Header';
 import type { LoginAction } from './LoginAction';
-import type { LoginState } from './loginReducer';
-import { loginReducerName } from './loginReducer';
+import type { LoginState } from './LoginReducer';
+import { loginReducerName } from './LoginReducer';
 import {
   String,
   Style

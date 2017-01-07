@@ -14,8 +14,8 @@ import ChannelList from './channel/ChannelList';
 import MessageList from './message/MessageList';
 import ChatBox from './common/ChatBox';
 import type { HomeAction } from './HomeAction';
-import type { HomeState } from './homeReducer';
-import { homeReducerName } from './homeReducer';
+import type { HomeState } from './HomeReducer';
+import { homeReducerName } from './HomeReducer';
 import {
   Dimension,
   Style

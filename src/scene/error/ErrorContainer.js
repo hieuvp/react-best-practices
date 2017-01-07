@@ -8,8 +8,8 @@ import Radium from 'radium';
 import { connect } from 'react-redux';
 import type { BaseProps } from '../../application/BaseContainer';
 import BaseContainer from '../../application/BaseContainer';
-import type { ErrorState } from './errorReducer';
-import { errorReducerName } from './errorReducer';
+import type { ErrorState } from './ErrorReducer';
+import { errorReducerName } from './ErrorReducer';
 import { Color } from '../../constant';
 
 export type ErrorProps = {};

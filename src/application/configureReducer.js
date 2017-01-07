@@ -4,10 +4,10 @@
  */
 import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
-import userReducer, { userReducerName } from '../domain/user/userReducer';
-import loginReducer, { loginReducerName } from '../scene/login/loginReducer';
-import homeReducer, { homeReducerName } from '../scene/home/homeReducer';
-import errorReducer, { errorReducerName } from '../scene/error/errorReducer';
+import UserReducer, { userReducerName } from '../domain/user/UserReducer';
+import LoginReducer, { loginReducerName } from '../scene/login/LoginReducer';
+import HomeReducer, { homeReducerName } from '../scene/home/HomeReducer';
+import ErrorReducer, { errorReducerName } from '../scene/error/ErrorReducer';
 
 export const whitelistReducers = [
   userReducerName,
@@ -16,9 +16,9 @@ export const whitelistReducers = [
 export default function configureReducer() {
   return combineReducers({
     routing: routerReducer,
-    [userReducerName]: userReducer,
-    [loginReducerName]: loginReducer,
-    [homeReducerName]: homeReducer,
-    [errorReducerName]: errorReducer,
+    [userReducerName]: UserReducer,
+    [loginReducerName]: LoginReducer,
+    [homeReducerName]: HomeReducer,
+    [errorReducerName]: ErrorReducer,
   });
 }
