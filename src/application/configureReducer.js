@@ -8,7 +8,6 @@ import UserReducer, { userReducerName } from '../domain/user/UserReducer';
 import ApplicationReducer, { applicationReducerName } from './ApplicationReducer';
 import LoginReducer, { loginReducerName } from '../scene/login/LoginReducer';
 import HomeReducer, { homeReducerName } from '../scene/home/HomeReducer';
-import ErrorReducer, { errorReducerName } from '../scene/error/ErrorReducer';
 
 export const whitelistReducers = [
   userReducerName,
@@ -21,6 +20,5 @@ export default function configureReducer() {
     [applicationReducerName]: ApplicationReducer,
     [loginReducerName]: LoginReducer,
     [homeReducerName]: HomeReducer,
-    [errorReducerName]: ErrorReducer,
   });
 }
