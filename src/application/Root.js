@@ -5,6 +5,8 @@
 import React from 'react';
 import { MuiThemeProvider } from 'material-ui';
 import injectTapEventPlugin from 'react-tap-event-plugin';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap-theme.css';
 import { Provider } from 'react-redux';
 import { Router } from 'react-router';
 import BaseComponent from './BaseComponent';

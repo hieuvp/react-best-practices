@@ -12,20 +12,16 @@ import LoginContainer from '../scene/login/LoginContainer';
 import HomeContainer from '../scene/home/HomeContainer';
 import NoMatchContainer from '../scene/error/page-not-found/NoMatchContainer';
 
-/**
- * @readonly
- * @enum {string}
- */
-export const RoutePath = {
-  LOGIN: 'login',
-  HOME: 'home',
+export const routePath = {
+  login: 'login',
+  home: 'home',
 };
 
 export default (
   <Route path="/" component={Application}>
-    <IndexRedirect to={RoutePath.HOME} />
-    <Route path={RoutePath.LOGIN} component={LoginContainer} />
-    <Route path={RoutePath.HOME} component={HomeContainer} />
+    <IndexRedirect to={routePath.home} />
+    <Route path={routePath.login} component={LoginContainer} />
+    <Route path={routePath.home} component={HomeContainer} />
     <Route path="*" component={NoMatchContainer} />
   </Route>
 );

@@ -13,8 +13,8 @@ esproposal.class_instance_fields=enable
 unsafe.enable_getters_and_setters=true
 experimental.const_params=true
 
-module.name_mapper='^\(.*\)\.css$' -> 'react-scripts/config/flow/css'
-module.name_mapper='^\(.*\)\.\(jpg\|png\|gif\|eot\|svg\|ttf\|woff\|woff2\|mp4\|webm\)$' -> 'react-scripts/config/flow/file'
+module.name_mapper='^\(.*\)\.css$' -> '<PROJECT_ROOT>/src'
+module.name_mapper='^\(.*\)\.\(jpg\|png\|gif\|eot\|otf\|webp\|svg\|ttf\|woff\|woff2\|mp4\|webm\)$' -> '<PROJECT_ROOT>/src'
 
 suppress_type=$FlowIssue
 suppress_type=$FlowFixMe
