@@ -4,6 +4,7 @@
  */
 import React from 'react';
 import { Card } from 'material-ui';
+import { FormControl } from 'react-bootstrap';
 import BaseComponent from '../../../application/BaseComponent';
 
 export default class ChatBox extends BaseComponent {
@@ -35,8 +36,9 @@ export default class ChatBox extends BaseComponent {
   render() {
     return (
       <Card style={styles.container}>
-        <textarea
+        <FormControl
           style={styles.textArea}
+          componentClass="textarea"
           value={this.state.text}
           onChange={this.onChange}
           onKeyUp={this.onKeyUp}
@@ -60,6 +62,5 @@ const styles = {
     borderRadius: 3,
     color: '#555',
     fontSize: 14,
-    outline: '0px auto',
   },
 };
