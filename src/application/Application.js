@@ -4,7 +4,6 @@
  */
 import React from 'react';
 import Helmet from 'react-helmet';
-import { CircularProgress } from 'material-ui';
 import Radium from 'radium';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -20,10 +19,6 @@ export type ApplicationProps = {
 
 class Application extends BaseContainer<BaseProps & ApplicationProps & ApplicationState> {
 
-  static get TAG_NAME() {
-    return Application.name;
-  }
-
   props: (BaseProps & ApplicationProps & ApplicationState);
 
   constructor(props: any) {
@@ -33,9 +28,12 @@ class Application extends BaseContainer<BaseProps & ApplicationProps & Applicati
   /**
    * @override
    */
-  componentWillMount() {
-    super.componentWillMount();
-    this.props.action.addLoggedUserListener();
+  componentWillReceiveProps(nextProps: any) {
+    super.componentWillReceiveProps(nextProps);
+    if (nextProps.rehydrated) {
+      this.props.action.terminateDisposables();
+      this.props.action.addLoggedUserListener();
+    }
   }
 
   /**
@@ -46,36 +44,16 @@ class Application extends BaseContainer<BaseProps & ApplicationProps & Applicati
     this.props.action.terminateDisposables();
   }
 
-  renderLoader = () => {
-    return (
-      <div style={styles.container}>
-        <CircularProgress size={60} thickness={6} />
-      </div>
-    );
-  };
-
   render() {
     return (
       <div>
         <Helmet title={this.props.document.title} />
-        {(() => (
-          this.props.rehydrated ? this.props.children : this.renderLoader()
-        ))()}
+        {this.props.rehydrated && this.props.children}
       </div>
     );
   }
 
 }
-
-const styles = {
-  container: {
-    display: 'flex',
-    height: '100vh',
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#fafafa',
-  },
-};
 
 function mapStateToProps(state) {
   return {
