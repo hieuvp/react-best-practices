@@ -4,11 +4,13 @@
  */
 import type { User } from '../domain/user/User';
 
-export const SIGN_IN: 'SIGN_IN' = 'SIGN_IN';
+export const UPDATE_REHYDRATED: 'UPDATE_REHYDRATED' = 'UPDATE_REHYDRATED';
 export const ADD_LOGGED_USER_LISTENER: 'ADD_LOGGED_USER_LISTENER' = 'ADD_LOGGED_USER_LISTENER';
+export const SIGN_IN: 'SIGN_IN' = 'SIGN_IN';
 
-export type Action = {type: typeof SIGN_IN}
+export type Action = {type: typeof UPDATE_REHYDRATED, rehydrated: boolean}
   | {type: typeof ADD_LOGGED_USER_LISTENER, user: ?User}
+  | {type: typeof SIGN_IN}
   ;
 
 export type ThunkAction = (dispatch: Dispatch, getState: GetState) => any;

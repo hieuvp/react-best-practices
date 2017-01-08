@@ -10,6 +10,7 @@ import { Router } from 'react-router';
 import BaseComponent from './BaseComponent';
 import Navigator from './Navigator';
 import DevTools from './DevTools';
+import * as Action from './ApplicationAction';
 import configureReducer, { whitelistReducers } from './configureReducer';
 import configureStore from './configureStore';
 import configureHistory from './configureHistory';
@@ -33,7 +34,7 @@ class Root extends BaseComponent {
     this.store = configureStore({
       reducers,
       whitelist: whitelistReducers,
-      onComplete: undefined,
+      onComplete: () => this.store.dispatch(Action.updateRehydrated(true)),
     });
     this.history = configureHistory(this.store);
   }

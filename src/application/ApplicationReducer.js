@@ -3,6 +3,7 @@
  * @flow
  */
 import type { Action } from './Action';
+import * as ActionType from './Action';
 import { String } from '../constant';
 
 export const applicationReducerName = 'application';
@@ -23,6 +24,11 @@ const initialState: ApplicationState = {
 
 export default function(state: ApplicationState = initialState, action: Action): ApplicationState {
   switch (action.type) {
+    case ActionType.UPDATE_REHYDRATED:
+      return {
+        ...state,
+        rehydrated: action.rehydrated,
+      };
     default:
       return state;
   }

@@ -18,12 +18,11 @@ const initialState: UserState = {
 
 export default function(state: UserState = initialState, action: Action): UserState {
   switch (action.type) {
-    case ActionType.ADD_LOGGED_USER_LISTENER: {
+    case ActionType.ADD_LOGGED_USER_LISTENER:
       return {
         ...state,
         loggedUser: action.user,
       };
-    }
     default:
       return state;
   }
