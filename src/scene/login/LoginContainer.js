@@ -33,50 +33,10 @@ class LoginContainer extends BaseContainer<BaseProps & LoginProps & LoginState> 
     return LoginContainer.name;
   }
 
-  static defaultProps: {};
-
   props: (BaseProps & LoginProps & LoginState);
-
-  state: {};
 
   constructor(props: any) {
     super(props);
-    this.state = {};
-  }
-
-  /**
-   * @override
-   */
-  componentWillMount() {
-    super.componentWillMount();
-  }
-
-  /**
-   * @override
-   */
-  componentDidMount() {
-    super.componentDidMount();
-  }
-
-  /**
-   * @override
-   */
-  componentWillReceiveProps(nextProps: any) {
-    super.componentWillReceiveProps(nextProps);
-  }
-
-  /**
-   * @override
-   */
-  componentDidUpdate() {
-    super.componentDidUpdate();
-  }
-
-  /**
-   * @override
-   */
-  componentWillUnmount() {
-    super.componentWillUnmount();
   }
 
   onClick = () => {
@@ -104,8 +64,6 @@ class LoginContainer extends BaseContainer<BaseProps & LoginProps & LoginState> 
   }
 
 }
-
-LoginContainer.defaultProps = {};
 
 const styles = {
   container: {

@@ -52,29 +52,9 @@ class HomeContainer extends BaseContainer<BaseProps & HomeProps & HomeState> {
   /**
    * @override
    */
-  componentDidMount() {
-    super.componentDidMount();
-  }
-
-  /**
-   * @override
-   */
-  componentWillReceiveProps(nextProps: any) {
-    super.componentWillReceiveProps(nextProps);
-  }
-
-  /**
-   * @override
-   */
-  componentDidUpdate() {
-    super.componentDidUpdate();
-  }
-
-  /**
-   * @override
-   */
   componentWillUnmount() {
     super.componentWillUnmount();
+    this.props.action.terminateDisposables();
   }
 
   render() {
