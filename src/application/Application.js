@@ -43,6 +43,7 @@ class Application extends BaseContainer<BaseProps & ApplicationProps & Applicati
    */
   componentWillUnmount() {
     super.componentWillUnmount();
+    this.props.action.terminateDisposables();
   }
 
   renderLoader = () => {
