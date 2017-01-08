@@ -37,6 +37,7 @@ export function addLoggedUserListener(): ThunkAction {
 
 export function terminateDisposables(): Action {
   disposables.forEach(disposable => disposable.dispose());
+  disposables.splice(0, disposables.length);
   return {
     type: ActionType.TERMINATE_DISPOSABLES,
   };
