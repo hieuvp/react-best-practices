@@ -8,6 +8,10 @@ import BaseComponent from '../../../application/BaseComponent';
 
 export default class ChannelItem extends BaseComponent {
 
+  static get TAG_NAME() {
+    return ChannelItem.name;
+  }
+
   props: {
     channel: string,
   };

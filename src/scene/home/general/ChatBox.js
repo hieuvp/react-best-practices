@@ -1,13 +1,22 @@
 /**
- * Created by HieuVP on 12/29/16.
+ * Created by HieuVP on 1/8/17.
  * @flow
  */
 import React from 'react';
 import { Card } from 'material-ui';
 import { FormControl } from 'react-bootstrap';
 import BaseComponent from '../../../application/BaseComponent';
+import type { BaseProps } from '../../../application/BaseContainer';
+import type { HomeProps } from '../HomeContainer';
+import type { HomeState } from '../HomeReducer';
 
-export default class ChatBox extends BaseComponent {
+export default class ChatBox extends BaseComponent<BaseProps & HomeProps & HomeState> {
+
+  static get TAG_NAME() {
+    return ChatBox.name;
+  }
+
+  props: (BaseProps & HomeProps & HomeState);
 
   state: {
     text: string,

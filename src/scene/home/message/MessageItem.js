@@ -1,5 +1,5 @@
 /**
- * Created by HieuVP on 12/29/16.
+ * Created by HieuVP on 1/8/17.
  * @flow
  */
 import React from 'react';
@@ -11,6 +11,10 @@ import BaseComponent from '../../../application/BaseComponent';
 import type { Message } from '../../../domain/chat/Message';
 
 export default class MessageItem extends BaseComponent {
+
+  static get TAG_NAME() {
+    return MessageItem.name;
+  }
 
   props: {
     message: Message,
@@ -25,7 +29,11 @@ export default class MessageItem extends BaseComponent {
   };
 
   render() {
-    return <ListItem leftAvatar={this.renderAvatar()}>{this.props.message.text}</ListItem>;
+    return (
+      <ListItem leftAvatar={this.renderAvatar()}>
+        {this.props.message.text}
+      </ListItem>
+    );
   }
 
 }
