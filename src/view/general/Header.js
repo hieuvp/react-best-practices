@@ -1,5 +1,5 @@
 /**
- * Created by HieuVP on 12/29/16.
+ * Created by HieuVP on 1/10/17.
  * @flow
  */
 import React from 'react';
@@ -8,6 +8,10 @@ import BaseView from '../BaseView';
 import { String } from '../../constant';
 
 export default class Header extends BaseView {
+
+  static get TAG_NAME() {
+    return Header.name;
+  }
 
   constructor(props: any) {
     super(props);
