@@ -11,16 +11,24 @@ import Application from './Application';
 import LoginContainer from '../scene/login/LoginContainer';
 import HomeContainer from '../scene/home/HomeContainer';
 import NoMatchContainer from '../scene/error/page-not-found/NoMatchContainer';
+import type { UserState } from '../domain/user/UserReducer';
+import { userReducerName } from '../domain/user/UserReducer';
 
 export const routePath = {
   login: 'login',
   home: 'home',
 };
 
+const requireLogin = (store, replaceState, callback) => {
+  const userState: UserState = store.getState()[userReducerName];
+  if (!userState.loggedUser) {
+    replaceState(routePath.login);
+  }
+  callback();
+};
 
 export default (store: any) => (
   <Route path="/" component={Application}>
-
     <IndexRedirect to={routePath.home} />
 
     <Route onEnter={(nextState, replaceState, callback) => requireLogin(store, replaceState, callback)}>
@@ -30,6 +38,5 @@ export default (store: any) => (
     <Route path={routePath.login} component={LoginContainer} />
 
     <Route path="*" component={NoMatchContainer} />
-
   </Route>
 );

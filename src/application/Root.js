@@ -12,18 +12,26 @@ import { Router } from 'react-router';
 import BaseComponent from './BaseComponent';
 import Navigator from './Navigator';
 import DevTools from './DevTools';
-import * as Action from './ApplicationAction';
 import configureReducer, { whitelistReducers } from './configureReducer';
 import configureStore from './configureStore';
 import configureHistory from './configureHistory';
 import { Configuration } from '../constant';
 
 class Root extends BaseComponent {
-  store: any;
-  history: any;
+
+  state: {
+    store: any,
+    history: any,
+    rehydrated: boolean,
+  };
 
   constructor(props: any) {
     super(props);
+    this.state = {
+      store: undefined,
+      history: undefined,
+      rehydrated: false,
+    };
     injectTapEventPlugin();
   }
 
@@ -33,27 +41,28 @@ class Root extends BaseComponent {
   componentWillMount() {
     super.componentWillMount();
     const reducers = configureReducer();
-    this.store = configureStore({
+    const store = configureStore({
       reducers,
       whitelist: whitelistReducers,
-      onComplete: () => this.store.dispatch(Action.updateRehydrated(true)),
+      onComplete: () => this.setState({rehydrated: true}),
     });
-    this.history = configureHistory(this.store);
+    const history = configureHistory(store);
+    this.setState({store, history});
   }
 
   render() {
-    return (
-      <Provider store={this.store}>
-        <MuiThemeProvider>
-          <div>
-            <Router history={this.history}>
-              {Navigator(this.store)}
-            </Router>
-            {Configuration.isDebuggable && <DevTools />}
-          </div>
-        </MuiThemeProvider>
-      </Provider>
-    );
+    return !this.state.rehydrated ? <div /> : (
+        <Provider store={this.state.store}>
+          <MuiThemeProvider>
+            <div>
+              <Router history={this.state.history}>
+                {Navigator(this.state.store)}
+              </Router>
+              {Configuration.isDebuggable && <DevTools />}
+            </div>
+          </MuiThemeProvider>
+        </Provider>
+      );
   }
 
 }

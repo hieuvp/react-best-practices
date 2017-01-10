@@ -28,12 +28,9 @@ class Application extends BaseContainer<BaseProps & ApplicationProps & Applicati
   /**
    * @override
    */
-  componentWillReceiveProps(nextProps: any) {
-    super.componentWillReceiveProps(nextProps);
-    if (nextProps.rehydrated) {
-      this.props.action.terminateDisposables();
-      this.props.action.addLoggedUserListener();
-    }
+  componentWillMount() {
+    super.componentWillMount();
+    this.props.action.addLoggedUserListener();
   }
 
   /**
@@ -48,7 +45,7 @@ class Application extends BaseContainer<BaseProps & ApplicationProps & Applicati
     return (
       <div>
         <Helmet title={this.props.document.title} />
-        {this.props.rehydrated && this.props.children}
+        {this.props.children}
       </div>
     );
   }

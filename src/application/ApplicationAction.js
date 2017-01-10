@@ -14,13 +14,6 @@ import userService from '../domain/user/UserService';
 
 const disposables: [Disposable] = [];
 
-export function updateRehydrated(rehydrated: boolean): Action {
-  return {
-    type: ActionType.UPDATE_REHYDRATED,
-    rehydrated,
-  };
-}
-
 export function addLoggedUserListener(): ThunkAction {
   return (dispatch) => {
     disposables.push(userService.loggedUser.subscribe({
@@ -44,7 +37,6 @@ export function terminateDisposables(): Action {
 }
 
 export type ApplicationAction = {
-  updateRehydrated: typeof updateRehydrated,
   addLoggedUserListener: typeof addLoggedUserListener,
   terminateDisposables: typeof terminateDisposables,
 };
