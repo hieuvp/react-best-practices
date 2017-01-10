@@ -17,11 +17,19 @@ export const routePath = {
   home: 'home',
 };
 
-export default (
+
+export default (store: any) => (
   <Route path="/" component={Application}>
+
     <IndexRedirect to={routePath.home} />
+
+    <Route onEnter={(nextState, replaceState, callback) => requireLogin(store, replaceState, callback)}>
+      <Route path={routePath.home} component={HomeContainer} />
+    </Route>
+
     <Route path={routePath.login} component={LoginContainer} />
-    <Route path={routePath.home} component={HomeContainer} />
+
     <Route path="*" component={NoMatchContainer} />
+
   </Route>
 );

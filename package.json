@@ -10,7 +10,7 @@
     "gulp": "^3.9.1",
     "gulp-shell": "^0.5.2",
     "gulp-wait": "0.0.2",
-    "react-scripts": "0.8.4",
+    "react-scripts": "0.8.5",
     "redux-devtools": "^3.3.1",
     "redux-devtools-dock-monitor": "^1.1.1",
     "redux-devtools-log-monitor": "^1.2.0",

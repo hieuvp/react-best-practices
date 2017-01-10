@@ -47,7 +47,7 @@ class Root extends BaseComponent {
         <MuiThemeProvider>
           <div>
             <Router history={this.history}>
-              {Navigator}
+              {Navigator(this.store)}
             </Router>
             {Configuration.isDebuggable && <DevTools />}
           </div>
