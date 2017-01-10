@@ -3,6 +3,17 @@
  * @flow
  */
 import BaseComponent from './BaseComponent';
+import { routePath } from './Navigator';
+
+type Router = {
+  push: (string) => void,
+  replace: (string) => void,
+  go: (number) => void,
+  goBack: () => void,
+  goForward: () => void,
+  setRouteLeaveHook: Function,
+  isActive: Function,
+};
 
 export type BaseProps = {
   children: any,
@@ -10,7 +21,7 @@ export type BaseProps = {
   params: any,
   route: any,
   routeParams: any,
-  router: any,
+  router: Router,
   routes: Array<any>,
 };
 
@@ -53,6 +64,10 @@ class BaseContainer<Props> extends BaseComponent<Props> {
    */
   componentWillUnmount() {
     super.componentWillUnmount();
+  }
+
+  get routePath(): typeof routePath {
+    return routePath;
   }
 
 }
