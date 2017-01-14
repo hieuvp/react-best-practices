@@ -5,11 +5,11 @@
 import type { User } from '../domain/user/User';
 
 export const TERMINATE_DISPOSABLES: 'TERMINATE_DISPOSABLES' = 'TERMINATE_DISPOSABLES';
-export const ADD_LOGGED_USER_LISTENER: 'ADD_LOGGED_USER_LISTENER' = 'ADD_LOGGED_USER_LISTENER';
+export const UPDATE_LOGGED_USER: 'UPDATE_LOGGED_USER' = 'UPDATE_LOGGED_USER';
 export const SIGN_IN: 'SIGN_IN' = 'SIGN_IN';
 
 export type Action = {type: typeof TERMINATE_DISPOSABLES}
-  | {type: typeof ADD_LOGGED_USER_LISTENER, user: ?User}
+  | {type: typeof UPDATE_LOGGED_USER, user: ?User}
   | {type: typeof SIGN_IN}
   ;
 

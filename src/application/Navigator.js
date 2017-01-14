@@ -19,7 +19,7 @@ export const routePath = {
   home: 'home',
 };
 
-const requireLogin = (store, replaceState, callback) => {
+const requireLogin = ({store, replaceState, callback}) => {
   const userState: UserState = store.getState()[userReducerName];
   if (!userState.loggedUser) {
     replaceState(routePath.login);
@@ -31,7 +31,7 @@ export default (store: any) => (
   <Route path="/" component={Application}>
     <IndexRedirect to={routePath.home} />
 
-    <Route onEnter={(nextState, replaceState, callback) => requireLogin(store, replaceState, callback)}>
+    <Route onEnter={(nextState, replaceState, callback) => requireLogin({store, replaceState, callback})}>
       <Route path={routePath.home} component={HomeContainer} />
     </Route>
 

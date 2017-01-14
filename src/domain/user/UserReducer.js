@@ -18,7 +18,7 @@ const initialState: UserState = {
 
 export default function(state: UserState = initialState, action: Action): UserState {
   switch (action.type) {
-    case ActionType.ADD_LOGGED_USER_LISTENER:
+    case ActionType.UPDATE_LOGGED_USER:
       return {
         ...state,
         loggedUser: action.user,

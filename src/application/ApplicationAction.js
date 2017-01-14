@@ -15,15 +15,15 @@ import userService from '../domain/user/UserService';
 const disposables: [Disposable] = [];
 
 export function addLoggedUserListener(): ThunkAction {
-  return (dispatch) => {
+  return (dispatch, getState) => {
     disposables.push(userService.loggedUser.subscribe({
       onNext: (user: ?User) => {
         dispatch({
-          type: ActionType.ADD_LOGGED_USER_LISTENER,
+          type: ActionType.UPDATE_LOGGED_USER,
           user,
         });
       },
-      onError: handleError,
+      onError: error => handleError({error, dispatch, getState}),
     }));
   };
 }
