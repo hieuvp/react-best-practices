@@ -18,6 +18,7 @@ type Parameter = {
 };
 
 export default function handleError({error, dispatch, getState}: Parameter) {
+  const currentRoutePath = browserHistory.getCurrentLocation().pathname;
   switch (error.name) {
     case InvalidTokenError.name:
       dispatch({

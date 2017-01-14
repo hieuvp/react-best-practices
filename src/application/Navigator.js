@@ -15,8 +15,8 @@ import type { UserState } from '../domain/user/UserReducer';
 import { userReducerName } from '../domain/user/UserReducer';
 
 export const routePath = {
-  login: 'login',
-  home: 'home',
+  login: '/login',
+  home: '/home',
 };
 
 const requireLogin = ({store, replaceState, callback}) => {
