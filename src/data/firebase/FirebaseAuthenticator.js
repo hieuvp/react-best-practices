@@ -4,6 +4,7 @@
  */
 import firebase from 'firebase';
 import Rx from 'rx';
+import { transformIntoUser } from './FirebaseDataMapper';
 import type { User } from '../../domain/user/User';
 
 export default class FirebaseAuthenticator {
@@ -21,11 +22,7 @@ export default class FirebaseAuthenticator {
   }
 
   onAuthStateChanged = (object: any) => {
-    const user: ?User = !object ? undefined : {
-        name: object.displayName,
-        email: object.email,
-        avatar: object.photoURL,
-      };
+    const user = transformIntoUser(object);
     this.userSubject.onNext(user);
   };
 

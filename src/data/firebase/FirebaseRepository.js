@@ -24,8 +24,8 @@ class FirebaseRepository extends BaseRepository {
     this.messageDataStore = new MessageDataStore(app);
   }
 
-  signInWithRedirect() {
-    this.googleAuthenticator.signInWithRedirect();
+  signInWithPopup(): Rx.Observable<?User> {
+    return this.googleAuthenticator.signInWithPopup();
   }
 
   get user(): Rx.Observable<?User> {

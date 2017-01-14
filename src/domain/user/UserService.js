@@ -13,8 +13,8 @@ class UserService extends BaseService {
     super();
   }
 
-  signInWithRedirect() {
-    firebaseRepository.signInWithRedirect();
+  signInWithPopup(): Rx.Observable<?User> {
+    return firebaseRepository.signInWithPopup();
   }
 
   get loggedUser(): Rx.Observable<?User> {
