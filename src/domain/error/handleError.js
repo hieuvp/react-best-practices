@@ -25,7 +25,7 @@ export default function handleError({error, dispatch, getState}: Parameter) {
         type: ActionType.UPDATE_LOGGED_USER,
         user: undefined,
       });
-      browserHistory.push(routePath.login);
+      browserHistory.push(routePath.login.main);
       break;
     default:
       break;

@@ -5,19 +5,19 @@ import shell from 'gulp-shell';
 import runSequence from 'run-sequence';
 
 const path = {
-  parent: '/',
+  root: '/',
   nodeModules: 'node_modules',
   flowTyped: 'flow-typed',
   build: 'build',
 };
 
-gulp.task('install-node-modules', () => gulp.src(path.parent)
+gulp.task('install-node-modules', () => gulp.src(path.root)
   .pipe(shell(`rm -rf ${path.nodeModules}`))
   .pipe(wait(1000))
   .pipe(shell('yarn install'))
 );
 
-gulp.task('install-flow-typed', () => gulp.src(path.parent)
+gulp.task('install-flow-typed', () => gulp.src(path.root)
   .pipe(shell(`rm -rf ${path.flowTyped}`))
   .pipe(wait(1000))
   .pipe(shell('flow-typed install'))
@@ -27,7 +27,7 @@ gulp.task('clean-install', ['install-node-modules'], (callback) => {
   runSequence('install-flow-typed', callback);
 });
 
-gulp.task('deploy-to-firebase', () => gulp.src(path.parent)
+gulp.task('deploy-to-firebase', () => gulp.src(path.root)
   .pipe(shell(`rm -rf ${path.build}`))
   .pipe(wait(1000))
   .pipe(shell('npm run build'))
