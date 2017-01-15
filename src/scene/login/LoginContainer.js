@@ -39,8 +39,17 @@ class LoginContainer extends BaseContainer<BaseProps & LoginProps & LoginState> 
     super(props);
   }
 
+  /**
+   * @override
+   */
+  componentWillUnmount() {
+    super.componentWillUnmount();
+    this.props.action.terminateDisposables();
+  }
+
   onClick = () => {
-    this.props.action.signIn();
+    this.props.action.signIn(() => {
+    });
   };
 
   render() {
