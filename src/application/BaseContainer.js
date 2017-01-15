@@ -5,7 +5,7 @@
 import BaseComponent from './BaseComponent';
 import { routePath } from './Navigator';
 
-type Location = {
+export type Location = {
   pathname: string,
   query: any,
   search: string,

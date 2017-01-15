@@ -7,6 +7,7 @@ import {
   Route,
   IndexRedirect
 } from 'react-router';
+import type { Location } from './BaseContainer';
 import Application from './Application';
 import LoginContainer from '../scene/login/LoginContainer';
 import HomeContainer from '../scene/home/HomeContainer';
@@ -20,9 +21,15 @@ export const routePath = {
   home: 'home',
 };
 
+export function getCurrentLocation(location: Location) {
+  return `${location.pathname}${location.search}${location.hash}`;
+}
+
 const requireLogin = ({store, replaceState, callback}) => {
-  const userState: UserState = store.getState()[userReducerName];
+  const state = store.getState();
+  const userState: UserState = state[userReducerName];
   if (!userState.loggedUser) {
+    const location: Location = state.routing.locationBeforeTransitions;
     replaceState(routePath.login);
   }
   callback();
