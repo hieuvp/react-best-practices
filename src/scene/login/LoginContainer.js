@@ -33,6 +33,12 @@ class LoginContainer extends BaseContainer<BaseProps & LoginProps & LoginState> 
     return LoginContainer.name;
   }
 
+  static get QUERY_PARAM() {
+    return {
+      redirectUrl: 'redirectUrl',
+    };
+  }
+
   props: (BaseProps & LoginProps & LoginState);
 
   constructor(props: any) {

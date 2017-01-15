@@ -5,6 +5,13 @@
 import BaseComponent from './BaseComponent';
 import { routePath } from './Navigator';
 
+type Location = {
+  pathname: string,
+  query: any,
+  search: string,
+  hash: string,
+};
+
 type Router = {
   push: (string) => void,
   replace: (string) => void,
@@ -17,7 +24,7 @@ type Router = {
 
 export type BaseProps = {
   children: any,
-  location: any,
+  location: Location,
   params: any,
   route: any,
   routeParams: any,

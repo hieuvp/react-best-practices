@@ -18,14 +18,13 @@ type Parameter = {
 };
 
 export default function handleError({error, dispatch, getState}: Parameter) {
-  const currentRoutePath = browserHistory.getCurrentLocation().pathname;
   switch (error.name) {
     case InvalidTokenError.name:
       dispatch({
         type: ActionType.UPDATE_LOGGED_USER,
         user: undefined,
       });
-      browserHistory.push(routePath.login.main);
+      browserHistory.replace(routePath.login);
       break;
     default:
       break;

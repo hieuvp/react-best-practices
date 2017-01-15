@@ -16,16 +16,14 @@ import { userReducerName } from '../domain/user/UserReducer';
 
 export const routePath = {
   root: '/',
-  login: {
-    main: 'login',
-  },
+  login: 'login',
   home: 'home',
 };
 
 const requireLogin = ({store, replaceState, callback}) => {
   const userState: UserState = store.getState()[userReducerName];
   if (!userState.loggedUser) {
-    replaceState(routePath.login.main);
+    replaceState(routePath.login);
   }
   callback();
 };
@@ -38,7 +36,7 @@ export default (store: any) => (
       <Route path={routePath.home} component={HomeContainer} />
     </Route>
 
-    <Route path={routePath.login.main} component={LoginContainer} />
+    <Route path={routePath.login} component={LoginContainer} />
 
     <Route path="*" component={NoMatchContainer} />
   </Route>
