@@ -10,7 +10,7 @@ import 'bootstrap/dist/css/bootstrap-theme.css';
 import { Provider } from 'react-redux';
 import { Router } from 'react-router';
 import BaseComponent from './BaseComponent';
-import Navigator from './Navigator';
+import Route from './Route';
 import DevTools from './DevTools';
 import configureReducer, { whitelistReducers } from './configureReducer';
 import configureStore from './configureStore';
@@ -56,7 +56,7 @@ class Root extends BaseComponent {
           <MuiThemeProvider>
             <div>
               <Router history={this.state.history}>
-                {Navigator(this.state.store)}
+                {Route(this.state.store)}
               </Router>
               {Configuration.isDebuggable && <DevTools />}
             </div>
