@@ -9,6 +9,9 @@ import { String } from '../../constant';
 
 export default class Header extends BaseView {
 
+  /**
+   * @return {string}
+   */
   static get TAG_NAME() {
     return Header.name;
   }

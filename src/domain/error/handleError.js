@@ -3,12 +3,12 @@
  * @flow
  */
 import { browserHistory } from 'react-router';
-import { routePath } from '../../application/Navigator';
 import type {
   Dispatch,
   GetState
 } from '../../application/Action';
 import * as ActionType from '../../application/Action';
+import LoginContainer from '../../scene/login/LoginContainer';
 import InvalidTokenError from './InvalidTokenError';
 
 type Parameter = {
@@ -24,7 +24,7 @@ export default function handleError({error, dispatch, getState}: Parameter) {
         type: ActionType.UPDATE_LOGGED_USER,
         user: undefined,
       });
-      browserHistory.replace(routePath.login);
+      browserHistory.replace(LoginContainer.ROUTE_PATH);
       break;
     default:
       break;

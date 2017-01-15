@@ -12,8 +12,18 @@ import { Color } from '../../../constant';
 
 class NoMatchContainer extends BaseContainer<BaseProps> {
 
+  /**
+   * @return {string}
+   */
   static get TAG_NAME() {
     return NoMatchContainer.name;
+  }
+
+  /**
+   * @return {string}
+   */
+  static get ROUTE_PATH() {
+    return '*';
   }
 
   props: BaseProps;

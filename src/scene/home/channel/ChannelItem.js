@@ -8,6 +8,9 @@ import BaseComponent from '../../../application/BaseComponent';
 
 export default class ChannelItem extends BaseComponent {
 
+  /**
+   * @return {string}
+   */
   static get TAG_NAME() {
     return ChannelItem.name;
   }

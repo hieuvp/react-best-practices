@@ -27,8 +27,18 @@ export type HomeProps = {
 
 class HomeContainer extends BaseContainer<BaseProps & HomeProps & HomeState> {
 
+  /**
+   * @return {string}
+   */
   static get TAG_NAME() {
     return HomeContainer.name;
+  }
+
+  /**
+   * @return {string}
+   */
+  static get ROUTE_PATH() {
+    return 'home';
   }
 
   static defaultProps: {};

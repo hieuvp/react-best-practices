@@ -12,6 +12,9 @@ import type { Message } from '../../../domain/chat/Message';
 
 export default class MessageItem extends BaseComponent {
 
+  /**
+   * @return {string}
+   */
   static get TAG_NAME() {
     return MessageItem.name;
   }

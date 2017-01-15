@@ -15,6 +15,9 @@ import type { HomeState } from '../HomeReducer';
 
 export default class ChannelList extends BaseComponent<BaseProps & HomeProps & HomeState> {
 
+  /**
+   * @return {string}
+   */
   static get TAG_NAME() {
     return ChannelList.name;
   }

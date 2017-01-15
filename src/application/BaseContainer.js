@@ -3,7 +3,6 @@
  * @flow
  */
 import BaseComponent from './BaseComponent';
-import { routePath } from './Navigator';
 
 export type Location = {
   pathname: string,
@@ -71,10 +70,6 @@ class BaseContainer<Props> extends BaseComponent<Props> {
    */
   componentWillUnmount() {
     super.componentWillUnmount();
-  }
-
-  get routePath(): typeof routePath {
-    return routePath;
   }
 
 }
