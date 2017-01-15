@@ -15,7 +15,7 @@ import NoMatchContainer from '../scene/error/page-not-found/NoMatchContainer';
 import type { UserState } from '../domain/user/UserReducer';
 import { userReducerName } from '../domain/user/UserReducer';
 
-export function getCurrentLocation(location: Location) {
+export function getUrl(location: Location) {
   return `${location.pathname}${location.search}${location.hash}`;
 }
 
@@ -24,7 +24,11 @@ const requireLogin = ({store, replaceState, callback}) => {
   const userState: UserState = state[userReducerName];
   if (!userState.loggedUser) {
     const location: Location = state.routing.locationBeforeTransitions;
-    replaceState(LoginContainer.ROUTE_PATH);
+    const pathname = LoginContainer.ROUTE_PATH;
+    const query = {
+      [LoginContainer.QUERY_PARAM.redirectUrl]: getUrl(location),
+    };
+    replaceState({pathname, query});
   }
   callback();
 };
