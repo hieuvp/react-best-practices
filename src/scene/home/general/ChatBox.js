@@ -12,9 +12,6 @@ import type { HomeState } from '../HomeReducer';
 
 export default class ChatBox extends BaseComponent<BaseProps & HomeProps & HomeState> {
 
-  /**
-   * @return {string}
-   */
   static get TAG_NAME() {
     return ChatBox.name;
   }

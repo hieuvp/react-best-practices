@@ -29,9 +29,6 @@ export type LoginProps = {
 
 class LoginContainer extends BaseContainer<BaseProps & LoginProps & LoginState> {
 
-  /**
-   * @return {string}
-   */
   static get TAG_NAME() {
     return LoginContainer.name;
   }

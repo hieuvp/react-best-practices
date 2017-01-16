@@ -12,9 +12,6 @@ import { Color } from '../../../constant';
 
 class NoMatchContainer extends BaseContainer<BaseProps> {
 
-  /**
-   * @return {string}
-   */
   static get TAG_NAME() {
     return NoMatchContainer.name;
   }
