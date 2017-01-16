@@ -26,8 +26,10 @@ if (Configuration.isDebuggable) {
   enhancer = compose(...composers);
 }
 
+export let store;
+
 export default function configureStore({reducers, whitelist, onComplete}) {
-  const store = createStore(reducers, enhancer);
+  store = createStore(reducers, enhancer);
   const persistorConfig = {
     whitelist,
     storage: localForage,

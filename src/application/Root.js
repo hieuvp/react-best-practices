@@ -13,25 +13,19 @@ import BaseComponent from './BaseComponent';
 import Route from './Route';
 import DevTools from './DevTools';
 import configureReducer, { whitelistReducers } from './configureReducer';
-import configureStore from './configureStore';
-import configureHistory from './configureHistory';
+import configureStore, { store } from './configureStore';
+import configureHistory, { history } from './configureHistory';
 import { Configuration } from '../constant';
 
 class Root extends BaseComponent {
 
   state: {
-    store: any,
-    history: any,
     rehydrated: boolean,
   };
 
   constructor(props: any) {
     super(props);
-    this.state = {
-      store: undefined,
-      history: undefined,
-      rehydrated: false,
-    };
+    this.state = {rehydrated: false};
     injectTapEventPlugin();
   }
 
@@ -46,17 +40,16 @@ class Root extends BaseComponent {
       whitelist: whitelistReducers,
       onComplete: () => this.setState({rehydrated: true}),
     });
-    const history = configureHistory(store);
-    this.setState({store, history});
+    configureHistory(store);
   }
 
   render() {
     return !this.state.rehydrated ? <div /> : (
-        <Provider store={this.state.store}>
+        <Provider store={store}>
           <MuiThemeProvider>
             <div>
-              <Router history={this.state.history}>
-                {Route(this.state.store)}
+              <Router history={history}>
+                {Route}
               </Router>
               {Configuration.isDebuggable && <DevTools />}
             </div>

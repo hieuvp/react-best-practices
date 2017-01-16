@@ -13,12 +13,15 @@ export const whitelistReducers = [
   userReducerName,
 ];
 
+export let reducers;
+
 export default function configureReducer() {
-  return combineReducers({
+  reducers = combineReducers({
     routing: routerReducer,
     [userReducerName]: UserReducer,
     [applicationReducerName]: ApplicationReducer,
     [loginReducerName]: LoginReducer,
     [homeReducerName]: HomeReducer,
   });
+  return reducers;
 }

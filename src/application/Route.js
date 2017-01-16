@@ -8,6 +8,7 @@ import {
   IndexRedirect
 } from 'react-router';
 import type { Location } from './BaseContainer';
+import { store } from './configureStore';
 import Application from './Application';
 import LoginContainer from '../scene/login/LoginContainer';
 import HomeContainer from '../scene/home/HomeContainer';
@@ -19,7 +20,7 @@ export function makeUrl(location: Location) {
   return `${location.pathname}${location.search}${location.hash}`;
 }
 
-const requireLogin = ({store, replaceState, callback}) => {
+const requireLogin = ({replaceState, callback}) => {
   const state = store.getState();
   const userState: UserState = state[userReducerName];
   if (!userState.loggedUser) {
@@ -33,11 +34,11 @@ const requireLogin = ({store, replaceState, callback}) => {
   callback();
 };
 
-export default (store: any) => (
+export default (
   <Route path={Application.ROUTE_PATH} component={Application}>
     <IndexRedirect to={HomeContainer.ROUTE_PATH} />
 
-    <Route onEnter={(nextState, replaceState, callback) => requireLogin({store, replaceState, callback})}>
+    <Route onEnter={(nextState, replaceState, callback) => requireLogin({replaceState, callback})}>
       <Route path={HomeContainer.ROUTE_PATH} component={HomeContainer} />
     </Route>
 
