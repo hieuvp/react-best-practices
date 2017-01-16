@@ -10,8 +10,8 @@ import {
 import type { Location } from './BaseContainer';
 import { store } from './configureStore';
 import Application from './Application';
-import LoginContainer from '../scene/login/LoginContainer';
-import HomeContainer from '../scene/home/HomeContainer';
+import LoginContainer, { loginRoutePath } from '../scene/login/LoginContainer';
+import HomeContainer, { homeRoutePath } from '../scene/home/HomeContainer';
 import NoMatchContainer from '../scene/error/page-not-found/NoMatchContainer';
 import type { UserState } from '../domain/user/UserReducer';
 import { userReducerName } from '../domain/user/UserReducer';
@@ -35,15 +35,15 @@ const requireLogin = ({replaceState, callback}) => {
 };
 
 export default (
-  <Route path={Application.ROUTE_PATH} component={Application}>
-    <IndexRedirect to={HomeContainer.ROUTE_PATH} />
+  <Route path="/" component={Application}>
+    <IndexRedirect to={homeRoutePath} />
 
     <Route onEnter={(nextState, replaceState, callback) => requireLogin({replaceState, callback})}>
-      <Route path={HomeContainer.ROUTE_PATH} component={HomeContainer} />
+      <Route path={homeRoutePath} component={HomeContainer} />
     </Route>
 
-    <Route path={LoginContainer.ROUTE_PATH} component={LoginContainer} />
+    <Route path={loginRoutePath} component={LoginContainer} />
 
-    <Route path={NoMatchContainer.ROUTE_PATH} component={NoMatchContainer} />
+    <Route path="*" component={NoMatchContainer} />
   </Route>
 );

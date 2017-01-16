@@ -16,13 +16,6 @@ class NoMatchContainer extends BaseContainer<BaseProps> {
     return NoMatchContainer.name;
   }
 
-  /**
-   * @return {string}
-   */
-  static get ROUTE_PATH() {
-    return '*';
-  }
-
   props: BaseProps;
 
   constructor(props: any) {

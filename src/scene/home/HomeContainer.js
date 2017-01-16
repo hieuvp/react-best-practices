@@ -25,17 +25,12 @@ export type HomeProps = {
   action: HomeAction,
 };
 
+export const homeRoutePath = 'home';
+
 class HomeContainer extends BaseContainer<BaseProps & HomeProps & HomeState> {
 
   static get TAG_NAME() {
     return HomeContainer.name;
-  }
-
-  /**
-   * @return {string}
-   */
-  static get ROUTE_PATH() {
-    return 'home';
   }
 
   static defaultProps: {};

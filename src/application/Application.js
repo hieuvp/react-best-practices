@@ -19,13 +19,6 @@ export type ApplicationProps = {
 
 class Application extends BaseContainer<BaseProps & ApplicationProps & ApplicationState> {
 
-  /**
-   * @return {string}
-   */
-  static get ROUTE_PATH() {
-    return '/';
-  }
-
   props: (BaseProps & ApplicationProps & ApplicationState);
 
   constructor(props: any) {

@@ -27,23 +27,16 @@ export type LoginProps = {
   action: LoginAction,
 };
 
+export const loginRoutePath = 'login';
+
+const queryParams = {
+  redirectUrl: 'redirectUrl',
+};
+
 class LoginContainer extends BaseContainer<BaseProps & LoginProps & LoginState> {
 
   static get TAG_NAME() {
     return LoginContainer.name;
-  }
-
-  /**
-   * @return {string}
-   */
-  static get ROUTE_PATH() {
-    return 'login';
-  }
-
-  static get QUERY_PARAM() {
-    return {
-      redirectUrl: 'redirectUrl',
-    };
   }
 
   props: (BaseProps & LoginProps & LoginState);
@@ -62,7 +55,7 @@ class LoginContainer extends BaseContainer<BaseProps & LoginProps & LoginState> 
 
   onClick = () => {
     this.props.action.signIn(() => {
-      const path = this.props.location.query[this.constructor.QUERY_PARAM.redirectUrl];
+      const path = this.props.location.query[queryParams.redirectUrl];
       this.props.router.replace(path);
     });
   };
