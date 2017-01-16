@@ -27,7 +27,7 @@ export type LoginProps = {
   action: LoginAction,
 };
 
-export const loginRoutePath = 'login';
+export const loginPath = 'login';
 
 const queryParams = {
   redirectUrl: 'redirectUrl',
@@ -37,6 +37,10 @@ class LoginContainer extends BaseContainer<BaseProps & LoginProps & LoginState> 
 
   static get TAG_NAME() {
     return LoginContainer.name;
+  }
+
+  static getCallingLocation() {
+    return loginPath;
   }
 
   props: (BaseProps & LoginProps & LoginState);
