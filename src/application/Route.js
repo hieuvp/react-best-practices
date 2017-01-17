@@ -8,6 +8,7 @@ import {
   IndexRedirect
 } from 'react-router';
 import type { Location } from './BaseContainer';
+import navigator from './Navigator';
 import { store } from './configureStore';
 import Application from './Application';
 import LoginContainer, { loginPath } from '../scene/login/LoginContainer';
@@ -16,20 +17,12 @@ import NoMatchContainer from '../scene/error/page-not-found/NoMatchContainer';
 import type { UserState } from '../domain/user/UserReducer';
 import { userReducerName } from '../domain/user/UserReducer';
 
-export function makeUrl(location: Location) {
-  return `${location.pathname}${location.search}${location.hash}`;
-}
-
-const requireLogin = ({replaceState, callback}) => {
+const requireLogin = (callback: Function) => {
   const state = store.getState();
   const userState: UserState = state[userReducerName];
   if (!userState.loggedUser) {
-    const location: Location = state.routing.locationBeforeTransitions;
-    const pathname = LoginContainer.ROUTE_PATH;
-    const query = {
-      [LoginContainer.QUERY_PARAM.redirectUrl]: makeUrl(location),
-    };
-    replaceState({pathname, query});
+    const redirectLocation: Location = state.routing.locationBeforeTransitions;
+    navigator.replaceLogin(redirectLocation);
   }
   callback();
 };
@@ -38,7 +31,7 @@ export default (
   <Route path="/" component={Application}>
     <IndexRedirect to={homePath} />
 
-    <Route onEnter={(nextState, replaceState, callback) => requireLogin({replaceState, callback})}>
+    <Route onEnter={(nextState, replaceState, callback) => requireLogin(callback)}>
       <Route path={homePath} component={HomeContainer} />
     </Route>
 

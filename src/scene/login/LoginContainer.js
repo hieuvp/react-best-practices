@@ -33,7 +33,7 @@ export type LoginProps = {
 export const loginPath = 'login';
 
 const queryParams = {
-  redirectUrl: 'redirectUrl',
+  redirectUri: 'redirectUri',
 };
 
 class LoginContainer extends BaseContainer<BaseProps & LoginProps & LoginState> {
@@ -42,6 +42,12 @@ class LoginContainer extends BaseContainer<BaseProps & LoginProps & LoginState> 
     return LoginContainer.name;
   }
 
+  static getCallingLocation(redirectLocation: Location) {
+    const pathname = loginPath;
+    const query = {
+      [queryParams.redirectUri]: super.getUriFromLocation(redirectLocation),
+    };
+    return {pathname, query};
   }
 
   props: (BaseProps & LoginProps & LoginState);
@@ -60,7 +66,7 @@ class LoginContainer extends BaseContainer<BaseProps & LoginProps & LoginState> 
 
   onClick = () => {
     this.props.action.signIn(() => {
-      const path = this.props.location.query[queryParams.redirectUrl];
+      const path = this.props.location.query[queryParams.redirectUri];
       this.props.router.replace(path);
     });
   };
