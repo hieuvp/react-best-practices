@@ -8,6 +8,10 @@ import LoginContainer from '../scene/login/LoginContainer';
 
 export class Navigator {
 
+  replaceUri(uri: string) {
+    browserHistory.replace(uri);
+  }
+
   replaceLogin(redirectLocation: Location) {
     const locationToLaunch = LoginContainer.getCallingLocation(redirectLocation);
     browserHistory.replace(locationToLaunch);

@@ -9,7 +9,6 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
 import { Provider } from 'react-redux';
 import { Router } from 'react-router';
-import BaseComponent from './BaseComponent';
 import Route from './Route';
 import DevTools from './DevTools';
 import configureReducer, { whitelistReducers } from './configureReducer';
@@ -17,7 +16,7 @@ import configureStore, { store } from './configureStore';
 import configureHistory, { history } from './configureHistory';
 import { Configuration } from '../constant';
 
-class Root extends BaseComponent {
+class Root extends React.Component {
 
   state: {
     rehydrated: boolean,
@@ -25,15 +24,13 @@ class Root extends BaseComponent {
 
   constructor(props: any) {
     super(props);
-    this.state = {rehydrated: false};
+    this.state = {
+      rehydrated: false,
+    };
     injectTapEventPlugin();
   }
 
-  /**
-   * @override
-   */
   componentWillMount() {
-    super.componentWillMount();
     const reducers = configureReducer();
     const store = configureStore({
       reducers,

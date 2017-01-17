@@ -3,6 +3,7 @@
  * @flow
  */
 import React from 'react';
+import navigator, { Navigator } from './Navigator';
 
 class BaseComponent<Props> extends React.Component<*, Props, *> {
 
@@ -23,6 +24,10 @@ class BaseComponent<Props> extends React.Component<*, Props, *> {
   }
 
   componentWillUnmount() {
+  }
+
+  get navigator(): Navigator {
+    return navigator;
   }
 
 }
