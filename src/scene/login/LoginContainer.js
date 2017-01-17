@@ -12,7 +12,10 @@ import {
 import Radium from 'radium';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import type { BaseProps } from '../../application/BaseContainer';
+import type {
+  BaseProps,
+  Location
+} from '../../application/BaseContainer';
 import BaseContainer from '../../application/BaseContainer';
 import Header from '../../view/general/Header';
 import type { LoginAction } from './LoginAction';
@@ -39,8 +42,6 @@ class LoginContainer extends BaseContainer<BaseProps & LoginProps & LoginState> 
     return LoginContainer.name;
   }
 
-  static getCallingLocation() {
-    return loginPath;
   }
 
   props: (BaseProps & LoginProps & LoginState);
