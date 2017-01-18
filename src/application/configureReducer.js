@@ -9,19 +9,20 @@ import ApplicationReducer, { applicationReducerName } from './ApplicationReducer
 import LoginReducer, { loginReducerName } from '../scene/login/LoginReducer';
 import HomeReducer, { homeReducerName } from '../scene/home/HomeReducer';
 
+export type State = typeof reducers;
+
+const reducers = {
+  routing: routerReducer,
+  [userReducerName]: UserReducer,
+  [applicationReducerName]: ApplicationReducer,
+  [loginReducerName]: LoginReducer,
+  [homeReducerName]: HomeReducer,
+};
+
 export const whitelistReducers = [
   userReducerName,
 ];
 
-export let reducers;
-
 export default function configureReducer() {
-  reducers = combineReducers({
-    routing: routerReducer,
-    [userReducerName]: UserReducer,
-    [applicationReducerName]: ApplicationReducer,
-    [loginReducerName]: LoginReducer,
-    [homeReducerName]: HomeReducer,
-  });
-  return reducers;
+  return combineReducers(reducers);
 }
