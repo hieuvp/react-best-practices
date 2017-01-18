@@ -9,10 +9,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import type { BaseProps } from '../../application/BaseContainer';
 import BaseContainer from '../../application/BaseContainer';
-import type {
-  State,
-  Dispatch
-} from '../../application/Action';
+import type { State } from '../../application/Action';
 import Header from '../../view/general/Header';
 import ChannelList from './channel/ChannelList';
 import MessageList from './message/MessageList';
@@ -102,12 +99,13 @@ const mapStateToProps = (state: State) => ({
   ...state[homeReducerName],
 });
 
-const mapDispatchToProps = (dispatch: Dispatch) => ({
+const mapDispatchToProps = (dispatch) => ({
   action: bindActionCreators({
     ...require('./HomeAction'),
   }, dispatch),
 });
 
+// $FlowFixMe
 export default connect(
   mapStateToProps,
   mapDispatchToProps,

@@ -17,10 +17,7 @@ import type {
   Location
 } from '../../application/BaseContainer';
 import BaseContainer from '../../application/BaseContainer';
-import type {
-  State,
-  Dispatch
-} from '../../application/Action';
+import type { State } from '../../application/Action';
 import Header from '../../view/general/Header';
 import type { LoginAction } from './LoginAction';
 import type { LoginState } from './LoginReducer';
@@ -109,12 +106,13 @@ const mapStateToProps = (state: State) => ({
   ...state[loginReducerName],
 });
 
-const mapDispatchToProps = (dispatch: Dispatch) => ({
+const mapDispatchToProps = (dispatch) => ({
   action: bindActionCreators({
     ...require('./LoginAction'),
   }, dispatch),
 });
 
+// $FlowFixMe
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
