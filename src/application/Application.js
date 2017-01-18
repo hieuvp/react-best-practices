@@ -9,7 +9,10 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import type { BaseProps } from './BaseContainer';
 import BaseContainer from './BaseContainer';
-import type { State } from './configureReducer';
+import type {
+  State,
+  Dispatch
+} from './Action';
 import type { ApplicationAction } from './ApplicationAction';
 import type { ApplicationState } from './ApplicationReducer';
 import { applicationReducerName } from './ApplicationReducer';
@@ -57,7 +60,7 @@ const mapStateToProps = (state: State) => ({
   ...state[applicationReducerName],
 });
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = (dispatch: Dispatch) => ({
   action: bindActionCreators({
     ...require('./ApplicationAction'),
   }, dispatch),

@@ -2,6 +2,7 @@
  * Created by HieuVP on 12/28/16.
  * @flow
  */
+import { reducers } from './configureReducer';
 import type { User } from '../domain/user/User';
 
 export const TERMINATE_DISPOSABLES: 'TERMINATE_DISPOSABLES' = 'TERMINATE_DISPOSABLES';
@@ -13,4 +14,5 @@ export type Action = {type: typeof TERMINATE_DISPOSABLES}
 
 export type ThunkAction = (dispatch: Dispatch, getState: GetState) => any;
 export type Dispatch = (action: Action | ThunkAction | Promise<Action> | Array<Action>) => any;
-export type GetState = () => Object;
+export type State = typeof reducers;
+export type GetState = () => State;
