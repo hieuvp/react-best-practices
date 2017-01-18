@@ -4,6 +4,8 @@
  */
 import { Disposable } from 'rx';
 import type {
+  Dispatch,
+  GetState,
   Action,
   ThunkAction
 } from '../../application/Action';
@@ -15,7 +17,7 @@ import userService from '../../domain/user/UserService';
 const disposables: [Disposable] = [];
 
 export function signIn(onCompleted: () => void): ThunkAction {
-  return (dispatch, getState) => {
+  return (dispatch: Dispatch, getState: GetState) => {
     disposables.push(userService.signInWithPopup()
       .subscribe({
         onNext: (user: ?User) => (
