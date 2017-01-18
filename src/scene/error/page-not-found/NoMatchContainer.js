@@ -5,7 +5,6 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import Radium from 'radium';
-import { connect } from 'react-redux';
 import type { BaseProps } from '../../../application/BaseContainer';
 import BaseContainer from '../../../application/BaseContainer';
 import { Color } from '../../../constant';
@@ -45,10 +44,4 @@ const styles = {
   },
 };
 
-function mapStateToProps() {
-  return {};
-}
-
-export default connect(
-  mapStateToProps,
-)(Radium(NoMatchContainer))
+export default Radium(NoMatchContainer);

@@ -69,4 +69,4 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(Radium(Application))
+)(Radium(Application));
