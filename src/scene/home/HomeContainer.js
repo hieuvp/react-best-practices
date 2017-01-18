@@ -9,14 +9,14 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import type { BaseProps } from '../../application/BaseContainer';
 import BaseContainer from '../../application/BaseContainer';
-import Header from '../../view/general/Header';
-import ChannelList from './channel/ChannelList';
-import MessageList from './message/MessageList';
-import ChatBox from './general/ChatBox';
 import type {
   State,
   Dispatch
 } from '../../application/Action';
+import Header from '../../view/general/Header';
+import ChannelList from './channel/ChannelList';
+import MessageList from './message/MessageList';
+import ChatBox from './general/ChatBox';
 import type { HomeAction } from './HomeAction';
 import type { HomeState } from './HomeReducer';
 import { homeReducerName } from './HomeReducer';

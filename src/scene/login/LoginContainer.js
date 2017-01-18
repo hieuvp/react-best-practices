@@ -17,11 +17,11 @@ import type {
   Location
 } from '../../application/BaseContainer';
 import BaseContainer from '../../application/BaseContainer';
-import Header from '../../view/general/Header';
 import type {
   State,
   Dispatch
 } from '../../application/Action';
+import Header from '../../view/general/Header';
 import type { LoginAction } from './LoginAction';
 import type { LoginState } from './LoginReducer';
 import { loginReducerName } from './LoginReducer';
