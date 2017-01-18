@@ -71,7 +71,7 @@ class LoginContainer extends BaseContainer<BaseProps & LoginProps & LoginState> 
   onClick = () => {
     this.props.action.signIn(() => {
       const redirectUri = this.props.location.query[queryParams.redirectUri];
-      this.navigator.replaceUri(redirectUri);
+      this.navigator.replaceUri(redirectUri || '/');
     });
   };
 
