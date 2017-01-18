@@ -13,6 +13,10 @@ import Header from '../../view/general/Header';
 import ChannelList from './channel/ChannelList';
 import MessageList from './message/MessageList';
 import ChatBox from './general/ChatBox';
+import type {
+  State,
+  Dispatch
+} from '../../application/Action';
 import type { HomeAction } from './HomeAction';
 import type { HomeState } from './HomeReducer';
 import { homeReducerName } from './HomeReducer';
@@ -94,19 +98,15 @@ const styles = {
   },
 };
 
-function mapStateToProps(state) {
-  return {
-    ...state[homeReducerName],
-  };
-}
+const mapStateToProps = (state: State) => ({
+  ...state[homeReducerName],
+});
 
-function mapDispatchToProps(dispatch) {
-  return {
-    action: bindActionCreators({
-      ...require('./HomeAction'),
-    }, dispatch),
-  };
-}
+const mapDispatchToProps = (dispatch: Dispatch) => ({
+  action: bindActionCreators({
+    ...require('./HomeAction'),
+  }, dispatch),
+});
 
 export default connect(
   mapStateToProps,

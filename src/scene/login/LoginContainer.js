@@ -18,6 +18,10 @@ import type {
 } from '../../application/BaseContainer';
 import BaseContainer from '../../application/BaseContainer';
 import Header from '../../view/general/Header';
+import type {
+  State,
+  Dispatch
+} from '../../application/Action';
 import type { LoginAction } from './LoginAction';
 import type { LoginState } from './LoginReducer';
 import { loginReducerName } from './LoginReducer';
@@ -101,19 +105,15 @@ const styles = {
   },
 };
 
-function mapStateToProps(state) {
-  return {
-    ...state[loginReducerName],
-  };
-}
+const mapStateToProps = (state: State) => ({
+  ...state[loginReducerName],
+});
 
-function mapDispatchToProps(dispatch) {
-  return {
-    action: bindActionCreators({
-      ...require('./LoginAction'),
-    }, dispatch),
-  };
-}
+const mapDispatchToProps = (dispatch: Dispatch) => ({
+  action: bindActionCreators({
+    ...require('./LoginAction'),
+  }, dispatch),
+});
 
 export default connect(
   mapStateToProps,
