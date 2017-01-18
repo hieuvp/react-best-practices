@@ -2,13 +2,13 @@
  * Created by HieuVP on 1/3/17.
  * @flow
  */
-import { browserHistory } from 'react-router';
 import type {
   Dispatch,
   GetState
 } from '../../application/Action';
 import * as ActionType from '../../application/Action';
-import LoginContainer from '../../scene/login/LoginContainer';
+import type { Location } from '../../application/BaseContainer';
+import navigator from '../../application/Navigator';
 import InvalidTokenError from './InvalidTokenError';
 
 type Parameter = {
@@ -19,13 +19,15 @@ type Parameter = {
 
 export default function handleError({error, dispatch, getState}: Parameter) {
   switch (error.name) {
-    case InvalidTokenError.name:
+    case InvalidTokenError.name: {
       dispatch({
         type: ActionType.UPDATE_LOGGED_USER,
         user: undefined,
       });
-      browserHistory.replace(LoginContainer.ROUTE_PATH);
+      const redirectLocation: Location = getState().routing.locationBeforeTransitions;
+      navigator.replaceLogin(redirectLocation);
       break;
+    }
     default:
       break;
   }
