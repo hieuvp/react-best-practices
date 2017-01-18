@@ -9,11 +9,11 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
 import { Provider } from 'react-redux';
 import { Router } from 'react-router';
-import Route from './Route';
-import DevTools from './DevTools';
 import configureReducer, { whitelistReducers } from './configureReducer';
 import configureStore, { store } from './configureStore';
 import configureHistory, { history } from './configureHistory';
+import Route from './Route';
+import DevTools from './DevTools';
 import { Configuration } from '../constant';
 
 class Root extends React.Component {

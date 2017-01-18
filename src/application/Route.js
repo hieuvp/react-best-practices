@@ -7,9 +7,9 @@ import {
   Route,
   IndexRedirect
 } from 'react-router';
+import { store } from './configureStore';
 import type { Location } from './BaseContainer';
 import navigator from './Navigator';
-import { store } from './configureStore';
 import Application from './Application';
 import LoginContainer, { loginPath } from '../scene/login/LoginContainer';
 import HomeContainer, { homePath } from '../scene/home/HomeContainer';
