@@ -1,8 +1,7 @@
 import 'babel-polyfill';
 import gulp from 'gulp';
-import wait from 'gulp-wait';
-import shell from 'gulp-shell';
 import runSequence from 'run-sequence';
+import runShell from './build-system/runShell';
 
 const path = {
   root: '/',
@@ -12,15 +11,13 @@ const path = {
 };
 
 gulp.task('install-node-modules', () => gulp.src(path.root)
-  .pipe(shell(`rm -rf ${path.nodeModules}`))
-  .pipe(wait(1000))
-  .pipe(shell('yarn install'))
+  .pipe(runShell(`rm -rf ${path.nodeModules}`))
+  .pipe(runShell('yarn install'))
 );
 
 gulp.task('install-flow-typed', () => gulp.src(path.root)
-  .pipe(shell(`rm -rf ${path.flowTyped}`))
-  .pipe(wait(1000))
-  .pipe(shell('flow-typed install'))
+  .pipe(runShell(`rm -rf ${path.flowTyped}`))
+  .pipe(runShell('flow-typed install'))
 );
 
 gulp.task('clean-install', ['install-node-modules'], (callback) => {
@@ -28,11 +25,8 @@ gulp.task('clean-install', ['install-node-modules'], (callback) => {
 });
 
 gulp.task('deploy-to-firebase', () => gulp.src(path.root)
-  .pipe(shell(`rm -rf ${path.build}`))
-  .pipe(wait(1000))
-  .pipe(shell('npm run build'))
-  .pipe(wait(1000))
-  .pipe(shell('firebase deploy'))
-  .pipe(wait(1000))
-  .pipe(shell(`rm -rf ${path.build}`))
+  .pipe(runShell(`rm -rf ${path.build}`))
+  .pipe(runShell('npm run build'))
+  .pipe(runShell('firebase deploy'))
+  .pipe(runShell(`rm -rf ${path.build}`))
 );
