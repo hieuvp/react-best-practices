@@ -14,7 +14,7 @@ import handleError from '../domain/error/handleError';
 import type { User } from '../domain/user/User';
 import userService from '../domain/user/UserService';
 
-const disposables: [Disposable] = [];
+const disposables: Array<Disposable> = [];
 
 export function addLoggedUserListener(): ThunkAction {
   return (dispatch: Dispatch, getState: GetState) => {

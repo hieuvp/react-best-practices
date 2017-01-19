@@ -6,7 +6,7 @@ import { Disposable } from 'rx';
 import type { Action } from '../../application/Action';
 import * as ActionType from '../../application/Action';
 
-const disposables: [Disposable] = [];
+const disposables: Array<Disposable> = [];
 
 export function terminateDisposables(): Action {
   disposables.forEach(disposable => disposable.dispose());
