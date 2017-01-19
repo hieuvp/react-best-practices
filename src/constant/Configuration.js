@@ -3,6 +3,21 @@
  * @flow
  */
 
+/**
+ * @enum
+ * @readonly
+ */
+const Environment = {
+  DEVELOPMENT: Symbol('DEVELOPMENT'),
+  STAGING: Symbol('STAGING'),
+  PRODUCTION: Symbol('PRODUCTION'),
+};
+
+/**
+ * @type {Environment}
+ */
+const profile = Environment.DEVELOPMENT;
+
 const isDebuggable: boolean = (process.env.NODE_ENV === 'development');
 
 const language = {
@@ -19,6 +34,8 @@ const firebase = {
 };
 
 export default {
+  Environment,
+  profile,
   isDebuggable,
   language,
   firebase,
