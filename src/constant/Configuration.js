@@ -1,6 +1,5 @@
 /**
  * Created by HieuVP on 12/28/16.
- * @flow
  */
 
 /**
@@ -18,7 +17,7 @@ const Environment = {
  */
 const profile = Environment.DEVELOPMENT;
 
-const isDebuggable: boolean = (process.env.NODE_ENV === 'development');
+const isDebuggable = (process.env.NODE_ENV === 'development');
 
 const language = {
   english: 'en',

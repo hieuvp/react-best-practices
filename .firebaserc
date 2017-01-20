@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "awesome-chat-app-9d0b0"
+    "default": "awesome-chat-development",
+    "development": "awesome-chat-development",
+    "staging": "awesome-chat-staging",
+    "production": "awesome-chat-production"
   }
 }
