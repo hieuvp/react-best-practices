@@ -17,6 +17,9 @@ const Environment = {
  */
 const profile = Environment.DEVELOPMENT;
 
+/**
+ * @type {boolean}
+ */
 const isDebuggable = (process.env.NODE_ENV === 'development');
 
 const language = {
@@ -24,13 +27,36 @@ const language = {
   vietnamese: 'vi',
 };
 
-const firebase = {
-  apiKey: "AIzaSyB23TVsCsywiIN2p1sEu_6RkhtWCQVy7zU",
-  authDomain: "awesome-chat-app-9d0b0.firebaseapp.com",
-  databaseURL: "https://awesome-chat-app-9d0b0.firebaseio.com",
-  storageBucket: "awesome-chat-app-9d0b0.appspot.com",
-  messagingSenderId: "415600980218",
-};
+const firebase = (() => {
+  switch (profile) {
+    case Environment.DEVELOPMENT:
+      return {
+        apiKey: "AIzaSyD2IF-oUGlDrQQdqG4j1fOHUYX2FMlikuQ",
+        authDomain: "awesome-chat-development.firebaseapp.com",
+        databaseURL: "https://awesome-chat-development.firebaseio.com",
+        storageBucket: "awesome-chat-development.appspot.com",
+        messagingSenderId: "736326604442"
+      };
+    case Environment.STAGING:
+      return {
+        apiKey: "AIzaSyBE3ZIwEAqXXLHqc92rAz7ffp8M3qItC8U",
+        authDomain: "awesome-chat-staging.firebaseapp.com",
+        databaseURL: "https://awesome-chat-staging.firebaseio.com",
+        storageBucket: "awesome-chat-staging.appspot.com",
+        messagingSenderId: "100781343696"
+      };
+    case Environment.PRODUCTION:
+      return {
+        apiKey: "AIzaSyAX8mJVDX63c9N178RRXzGFsYW9tqIJHss",
+        authDomain: "awesome-chat-production.firebaseapp.com",
+        databaseURL: "https://awesome-chat-production.firebaseio.com",
+        storageBucket: "awesome-chat-production.appspot.com",
+        messagingSenderId: "967250077961"
+      };
+    default:
+      return undefined;
+  }
+})();
 
 export default {
   Environment,
