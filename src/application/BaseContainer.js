@@ -3,23 +3,10 @@
  * @flow
  */
 import BaseComponent from './BaseComponent';
-
-export type Location = {
-  pathname: string,
-  query: any,
-  search: string,
-  hash: string,
-};
-
-type Router = {
-  push: (string) => void,
-  replace: (string) => void,
-  go: (number) => void,
-  goBack: () => void,
-  goForward: () => void,
-  setRouteLeaveHook: Function,
-  isActive: Function,
-};
+import type {
+  Location,
+  Router
+} from './Route';
 
 export type BaseProps = {
   children: any,

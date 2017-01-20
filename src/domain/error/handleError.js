@@ -7,7 +7,7 @@ import type {
   GetState
 } from '../../application/Action';
 import * as ActionType from '../../application/Action';
-import type { Location } from '../../application/BaseContainer';
+import type { Location } from '../../application/Route';
 import navigator from '../../application/Navigator';
 import InvalidTokenError from './InvalidTokenError';
 

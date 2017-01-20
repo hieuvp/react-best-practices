@@ -12,11 +12,9 @@ import {
 import Radium from 'radium';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import type {
-  BaseProps,
-  Location
-} from '../../application/BaseContainer';
+import type { BaseProps } from '../../application/BaseContainer';
 import BaseContainer from '../../application/BaseContainer';
+import type { Location } from '../../application/Route';
 import type { State } from '../../application/Action';
 import Header from '../../view/general/Header';
 import type { LoginAction } from './LoginAction';

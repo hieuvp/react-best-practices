@@ -3,7 +3,7 @@
  * @flow
  */
 import { browserHistory } from 'react-router';
-import type { Location } from './BaseContainer';
+import type { Location } from './Route';
 import LoginContainer from '../scene/login/LoginContainer';
 
 export class Navigator {
