@@ -7,6 +7,10 @@ import navigator, { Navigator } from './Navigator';
 
 class BaseComponent<Props> extends React.Component<*, Props, *> {
 
+  static get navigator(): Navigator {
+    return navigator;
+  }
+
   constructor(props: any) {
     super(props);
   }
@@ -24,10 +28,6 @@ class BaseComponent<Props> extends React.Component<*, Props, *> {
   }
 
   componentWillUnmount() {
-  }
-
-  get navigator(): Navigator {
-    return navigator;
   }
 
 }

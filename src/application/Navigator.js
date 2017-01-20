@@ -8,6 +8,10 @@ import LoginContainer from '../scene/login/LoginContainer';
 
 export class Navigator {
 
+  getUriFromLocation(location: Location): string {
+    return `${location.pathname}${location.search}${location.hash}`;
+  }
+
   replaceUri(uri: string) {
     browserHistory.replace(uri);
   }

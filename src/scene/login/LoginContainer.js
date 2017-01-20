@@ -44,7 +44,7 @@ class LoginContainer extends BaseContainer<BaseProps & LoginProps & LoginState> 
   static getCallingLocation(redirectLocation: Location) {
     const pathname = loginPath;
     const query = {
-      [queryParams.redirectUri]: super.getUriFromLocation(redirectLocation),
+      [queryParams.redirectUri]: super.navigator.getUriFromLocation(redirectLocation),
     };
     return {pathname, query};
   }
@@ -66,7 +66,7 @@ class LoginContainer extends BaseContainer<BaseProps & LoginProps & LoginState> 
   onClick = () => {
     this.props.action.signIn(() => {
       const redirectUri = this.props.location.query[queryParams.redirectUri];
-      this.navigator.replaceUri(redirectUri || '/');
+      this.constructor.navigator.replaceUri(redirectUri || '/');
     });
   };
 

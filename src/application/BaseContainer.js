@@ -20,10 +20,6 @@ export type BaseProps = {
 
 class BaseContainer<Props> extends BaseComponent<Props> {
 
-  static getUriFromLocation(location: Location): string {
-    return `${location.pathname}${location.search}${location.hash}`;
-  }
-
   constructor(props: any) {
     super(props);
   }
