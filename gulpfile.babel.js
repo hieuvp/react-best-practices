@@ -32,7 +32,7 @@ gulp.task('clean-install', ['install-node-modules'], (callback) => {
 
 gulp.task('deploy-to-firebase', () => gulp.src(path.root)
   .pipe(runShell(`rm -rf ${path.build}`))
-  .pipe(runShell('npm run build'))
+  .pipe(runShell('yarn run build'))
   .pipe(gulpIf(isDevelopment, runShell('firebase deploy -P development')))
   .pipe(gulpIf(isStaging, runShell('firebase deploy -P staging')))
   .pipe(gulpIf(isProduction, runShell('firebase deploy -P production')))
